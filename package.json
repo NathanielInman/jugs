@@ -1,18 +1,18 @@
 {
-  "name": "slush-gladius",
-  "version": "1.1.0",
-  "description": "Slush generator for bleeding edge weapo... ehr, applications!",
+  "name": "slush-jugs",
+  "version": "1.0.0",
+  "description": "Slush generator (J)ade (ug)lify (s)tylus makes game development fun again!",
   "license": "MIT",
   "author": {
-    "name": "Federico Giovagnoli",
-    "email": "gvg.fede@gmail.com"
+    "name": "Nathaniel Inman",
+    "email": "nate@theoestudio.com"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Meesayen/slush-gladius.git"
+    "url": "git://github.com/NathanielInman/slush-jugs.git"
   },
   "main": "slushfile.js",
   "scripts": {},
@@ -20,18 +20,16 @@
     "slushgenerator",
     "esnext",
     "future",
-    "bleeding",
-    "cutting",
-    "rewriting",
+    "jade",
+    "stylus",
     "transform",
-    "browserify",
     "preprocessor",
     "syntax",
     "codegen",
-    "desugaring",
+    "jugs",
     "javascript",
     "ecmascript",
-    "language",
+    "games",
     "es5",
     "es6",
     "ES.next",
@@ -63,8 +61,8 @@
     "semver": "^4.1.0"
   },
   "bugs": {
-    "url": "https://github.com/Meesayen/slush-gladius/issues"
+    "url": "https://github.com/NathanielInman/slush-jugs/issues"
   },
   "readmeFilename": "README.md",
-  "homepage": "https://github.com/Meesayen/slush-gladius"
+  "homepage": "https://github.com/NathanielInman/slush-jugs"
 }

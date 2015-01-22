@@ -4,10 +4,10 @@ node_js:
 - '0.10'
 deploy:
   provider: npm
-  email: gvg.fede@gmail.com
+  email: nate@theoestudio.com
   api_key:
-    secure: M5Nce98pmmnn6dUd594DxmRZCSTnMqU2mzznZMvcYFiP/gAa33ZS/Tai+UkpQBpJeGmn1EyPdqkUsqLVaVzIf5zivgzUcUXZFNBoc3CJOTNljD5pVC5OhSbvz1V490xVxPKprBb+akM4JFDd9LtDADNeNcknybKBuVVUWQ/96vI=
+    secure: enter-key-here
   on:
     tags: true
-    repo: Meesayen/slush-gladius
+    repo: NathanielInman/slush-jugs
     all_branches: true
