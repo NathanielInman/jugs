@@ -1,0 +1,48 @@
+// Base Colors
+base-color  = #999
+light-color = base-color + #666
+dark-color  = base-color - #666
+error-color = #C33
+
+// Base styles
+html,button,input,select,textarea 
+  color dark-color
+
+html 
+  font-size 1em
+  line-height 1.4
+
+body 
+  background  base-color
+  font-family 'Courier New', sans-serif
+  font-weight 800
+  color light-color
+
+// Fixes
+::-moz-selection 
+  background dark-color
+  text-shadow none
+
+::selection 
+  background dark-color
+  text-shadow none
+
+// consolidation functions
+.absolute 
+  position absolute
+.border
+  border 2px solid dark-color + #111
+.border-thin
+  border 1px solid dark-color + #111
+.anchor-fill-top  
+  left 0; top 0; right 0
+  @extend .absolute
+.anchor-fill-bottom
+  left 0; bottom 0; right 0
+  @extend .absolute
+.anchor-fill-right
+  right 0; top 0; bottom 0
+  @extend .absolute
+.anchor-fill-left 
+  left 0; top 0; bottom 0
+  @extend .absolute

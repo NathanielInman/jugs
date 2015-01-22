@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- '0.11'
+- '0.10'
+deploy:
+  provider: npm
+  email: gvg.fede@gmail.com
+  api_key:
+    secure: M5Nce98pmmnn6dUd594DxmRZCSTnMqU2mzznZMvcYFiP/gAa33ZS/Tai+UkpQBpJeGmn1EyPdqkUsqLVaVzIf5zivgzUcUXZFNBoc3CJOTNljD5pVC5OhSbvz1V490xVxPKprBb+akM4JFDd9LtDADNeNcknybKBuVVUWQ/96vI=
+  on:
+    tags: true
+    repo: Meesayen/slush-gladius
+    all_branches: true

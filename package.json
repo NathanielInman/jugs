@@ -1,0 +1,70 @@
+{
+  "name": "slush-gladius",
+  "version": "1.1.0",
+  "description": "Slush generator for bleeding edge weapo... ehr, applications!",
+  "license": "MIT",
+  "author": {
+    "name": "Federico Giovagnoli",
+    "email": "gvg.fede@gmail.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Meesayen/slush-gladius.git"
+  },
+  "main": "slushfile.js",
+  "scripts": {},
+  "keywords": [
+    "slushgenerator",
+    "esnext",
+    "future",
+    "bleeding",
+    "cutting",
+    "rewriting",
+    "transform",
+    "browserify",
+    "preprocessor",
+    "syntax",
+    "codegen",
+    "desugaring",
+    "javascript",
+    "ecmascript",
+    "language",
+    "es5",
+    "es6",
+    "ES.next",
+    "harmony",
+    "compiler",
+    "transpiler",
+    "gulp",
+    "build"
+  ],
+  "dependencies": {
+    "gulp": "^3.8.8",
+    "gulp-conflict": "^0.3.0",
+    "gulp-filter": "^2.0.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-install": "^0.2.0",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-template": "^2.0.0",
+    "iniparser": "^1.0.5",
+    "del": "^1.1.1",
+    "inquirer": "^0.8.0"
+  },
+  "devDependencies": {
+    "gulp-bump": "^0.1.11",
+    "gulp-git": "^0.5.0",
+    "gulp-jshint": "^1.8.4",
+    "gulp-tag-version": "^1.1.0",
+    "jshint-stylish": "^1.0.0",
+    "gulp-jsvalidate": "^1.0.1",
+    "semver": "^4.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/Meesayen/slush-gladius/issues"
+  },
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/Meesayen/slush-gladius"
+}

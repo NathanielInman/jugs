@@ -1,0 +1,42 @@
+@import "nib"
+
+// Browse happy prompt - Their browser is outdated div
+.browsehappy
+  margin 0.2em 0
+  background dark-color
+  color base-color
+  padding 0.5em
+  @extend .border-thin
+  text-align center
+  a:link
+  text-decoration none
+  color base-color + #024
+  &:hover
+    color base-color + #048
+
+// No script container
+#noscript
+  height     50%
+  min-width  400px
+  color      error-color
+  padding    0.5em
+  text-align center
+  @extend .anchor-fill-top
+  &>p
+    @extend .absolute, .anchor-fill-bottom, .border-thin
+    margin 0.2em 0
+    background dark-color
+  .btn
+    @extend .absolute
+    bottom -40px
+    left 30%; right 30%
+    height 30px
+    border 2px solid base-color
+    color light-color
+    text-align center
+    clear both
+    background dark-color
+    line-height 2
+    min-width 200px
+    &:hover
+      background dark-color+#111
