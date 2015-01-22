@@ -6,8 +6,7 @@ deploy:
   provider: npm
   email: nate@theoestudio.com
   api_key:
-    secure: enter-key-here
+    secure: V0I67QCWiesfAkkcX0mQE72ju09QTiZ1z1qN2IQ/E0tAzltnku/3loFHmziFSnymLHVhJV5UQt/qG+fVUg1zetGIBLu+PPPmVwJk+eI/S4OijDrcH8Fhp1GMu3ZQJWgc+0z4IPJ2b+BXypr+ZbnFWMUq7bejPZUpZdR8kOBj/sU=
   on:
     tags: true
     repo: NathanielInman/slush-jugs
-    all_branches: true
