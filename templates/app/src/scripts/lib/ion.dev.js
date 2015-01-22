@@ -35,7 +35,6 @@ var Ion=function(q,s,x,y,dx,dy){
   this.tween_current=0;
   this.tween_duration=1000;
   this.tween_speed=1;
-  this.effects=0;
 };
 
 /**
@@ -220,12 +219,16 @@ Ion.prototype.reset=function(atom){
  * create another particle. This recursive action continues until the total particle quantity
  * is reached.
  *
+ * @param wait Function passed that will return a integer in milliseconds to force population wait
+ *             between ions
  * @return {Void} Function doesn't return a value
  */
-Ion.prototype.populate=function(){
+Ion.prototype.populate=function(wait){
   var that=this;
   this.particle.push(this.getNew(this.particle.length));
-  if(this.particle.length<this.quantity)setTimeout(function(){that.populate();},1);
+  if(this.particle.length<this.quantity){
+    setTimeout(function(){that.populate(wait);},typeof wait == 'function' ? wait() : 1);
+  } //end if
 };
 
 /**
@@ -250,8 +253,12 @@ Ion.prototype.wind=function(atom){
  * @return {Void}         Function doesn't return a value
  */
 Ion.prototype.draw=function(atom){
-  if(this.particle[atom].image){
-    ctx.drawImage(this.particle[atom].image,this.particle[atom].x-this.particle[atom].imageWidth/2,this.particle[atom].y-this.particle[atom].imageHeight/2);
+  if(this.particle[atom].image){ //image was passed, use it instead of a pixel particle
+    if(this.particle[atom].imageWidth && this.particle[atom].imageHeight){ //sizes given for constrain
+      ctx.drawImage(this.particle[atom].image,this.particle[atom].x-this.particle[atom].imageWidth/2,this.particle[atom].y-this.particle[atom].imageHeight/2, this.particle[atom].imageWidth, this.particle[atom].imageHeight);
+    }else{ //no sizes given, just allow it to fill with images normal size
+      ctx.drawImage(this.particle[atom].image,this.particle[atom].x-this.particle[atom].imageWidth/2,this.particle[atom].y-this.particle[atom].imageHeight/2);
+    } //end if
   }else{
     ctx.fillRect(this.particle[atom].x,this.particle[atom].y,this.particle[atom].s,this.particle[atom].s);
   } //end if
@@ -302,17 +309,17 @@ Ion.prototype.onEscape=function(){};
  */
 Ion.prototype.process=function(){
   var that=this;
-  if(this.clear){
+  if(typeof this.clear == 'function'){ //override clear function, use it instead
+    this.clear();
+  } else if(this.clear){ //sent as some truthy value, likely boolean true
     ctx.fillStyle=this.clearColor;
     ctx.fillRect(0,0,v.w,v.h);
-    if(this.retain){
-      this.retain(); //if there is a retaining script, run it
-    }
+  } //end if
+  if(this.clear && this.retain){
+    this.retain(); //if there is a retaining script, run it
   } //end if
   this.getFrame(); //call getFrame() to receive and flip all pixel information for next update
-  setTimeout(function(){
-    that.process();
-  },this.tween_speed);
+  setTimeout(function(){that.process();},this.tween_speed);
 };
 
 /**

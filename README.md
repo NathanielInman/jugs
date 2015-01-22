@@ -1,109 +1,105 @@
-slush-gladius
+slush-jugs
 =================
 
-[![Build Status](https://travis-ci.org/Meesayen/slush-gladius.svg?branch=master)](https://travis-ci.org/Meesayen/slush-gladius) [![dependency Status](https://david-dm.org/Meesayen/slush-gladius/status.svg?style=flat)](https://david-dm.org/Meesayen/slush-gladius) [![devDependency Status](https://david-dm.org/Meesayen/slush-gladius/dev-status.svg?style=flat)](https://david-dm.org/Meesayen/slush-gladius#info=devDependencies)
+[![Build Status](https://travis-ci.org/NathanielInman/slush-jugs.svg?branch=master)](https://travis-ci.org/NathanielInman/slush-jugs) [![dependency Status](https://david-dm.org/NathanielInman/slush-jugs/status.svg?style=flat)](https://david-dm.org/NathanielInman/slush-jugs) [![devDependency Status](https://david-dm.org/NathanielInman/slush-jugs/dev-status.svg?style=flat)](https://david-dm.org/NathanielInman/slush-jugs#info=devDependencies)
 
+Slush generator (J)ade (ug)lify (s)tylus makes game development fun again!
 
-Slush generator for bleeding edge applications.
-
-It comes with an ES6+ (ES7 async/await are there) to ES3-ish (as IE8 compatible
-as possible, but you may have to import polyfills, shims and shams accordingly)
-compilation process, together with a Browserify bundling and Uglifyjs compression.
-
-Plus a CSS compilation task, to choose from one of the following:
-
-- LESS
-- Sass
-- SCSS + Compass
-- Myth
-- Stylus
-
-as well as an Autoprefixer, post compilation, process (bye bye vendor prefixes).
-
-Also, templates precompilation process, to choose from one of the following:
-
-- Handlebars
-- Dust
-- Dot.js
-- Jade
-
-the task compiles templates in JST format, namespaces them under an `R.templates`
-globally accessible variable and serves it to you in the form of a `template.js`
-module inside your static scripts folder.
-
-You can also rely on a Karma tests runner, with PhantomJS and Google Chrome
-engines (bring your own karma.config.js file, though), plus JSHint code check and
-JSValidate safety checks on critical tasks.
-
-It also gives you the possibility to serve your own instance of a Node.js server,
-plus watchers and livereloading for, well, everything really.
-
-**Bonus:** version bumping and git tagging/pushing tasks.
-
-*Based on the prebuilt gulp environment [gladius-forge][9].*
-
+- **Browser Sync** : *Live reloading system*
+- **6to5** : *ES6 to ES5 compiler*
+- **Jshint** : *Lint your javascript in its ES6 format*
+- **Jade** : *Templating system made easy*
+- **Stylus** : *Powerful CSS Preprocessor with a beautiful syntax*
+  - **Nib** : **[optional]** *Choosing this plugin on init gives you plenty of extensions*
+  - **Kouto Swiss** : **[optional]** *Alternative plugin that gives tons of additional features*
+- **Uglify** : *Both CSS and JS to make your client payloads small and quick to load*
+  - *Doesn't compress vendors folder*
+  - *concats all scripts together into two files*
+    - **'runtime.min.js'** : *Contains all scripts that compose the application*
+    - **'app.min.js'** : *Contains the initialization and execution logic*
 
 Installation + Usage
 -------------------
 
-Simply install [slush][10], as well as this generator, globally:
+Simply install [slush][2], as well as this generator, globally:
 
 ```
-npm install -g slush slush-gladius
+npm install -g slush slush-jugs
+mkdir appName
+cd appName
+slush jugs
 ```
 
-and then run, under an empty folder of your choice, the slush command:
+to run...
 
 ```
-slush gladius
+gulp
 ```
 
-Follow the instructions and in less than a minute you will have a complete
-bleeding edge boilerplate at your hand.
-
-Enjoy.
-
+And just like that, you're on the way to making your app!
 
 Notes
 ---------------------
 
-The boilerplate comes with a very basic set of dependencies installed via NPM.
-The remaining modules needed by each task will be lazily installed during the
-pre-process phase of each default task.
+The boilerplate comes setup with the perspective of a video game developer, but
+can be easily transitioned into other avenues. Two very basic libraries are included
+that I developed : Easel and Ion.
 
-This way makes it possible to have the smallest amount of dependencies needed to
-be installed for the `production` task, that reflects on an massive reduction of
-the installation footprint on production environment.
+Easel sets up a canvas that will fit the perspective of the window
+and automatically adjust in size when the window is resized. It's an extremely small
+library and sets up a few variables that I find very useful:
 
+* **ctx** : *context of the canvas*
+* **v.w** : *viewport width in pixels*
+* **v.h** : *viewport height in pixels*
+* **r(number)** : *returns a decimal between 0 and number*
+* **r(number,0,1)** : *returns an integer between 0 and number*
+* **r(num1,num2)** : *returns a decimal between num1 and num2*
+* **r(num1,num2,1)** : *returns an integer between num1 and num2*
+* **Easel.background** : *color to flood the canvas with when it redraws*
+* **Easel.redraw()** : *override this function to handle redraws on resize, or call it by hand*
+
+Ion is an extremely lightweight particle engine made for canvas 2d context. The
+library is well-documented.
 
 Thanks
 ---------------------
 
-This boilerplate of mine is just a combination of great tools put together to
-achieve higher goals (using cutting edge technologies today, greatly simplifying
-a developer's workflow, etc), and if it weren't for the people who built those
-tools, I wouldn't have made this little thing so far.
+This boilerplate of mine is just a combination of great tools, all credit goes to
+those who actually put in all the hard work to create them.
 
-So, thanks goes to:
+- The [Gulp][1] developers. Streaming build system, how nice and easy to setup.
+- There have been many [Slush][2] generators that have been instrumental in getting
+  all those pesky apps developed on time. It's great to finally have an alternative
+  to Yeoman.
+- Though [Jade][3] has been seen predominately as a server-side helper for templating,
+  I find it incredibly helpful on front-end projects where I'm using a build system
+  anyways as the syntax is far easier to read and reduces duplication of segments with
+  partials.
+- From css to less to sass to [Stylus][4], it's been a long road with css pre-processors,
+  but I finally found one that lets me drop all the redundant syntax and focus more on the
+  design. I love my curly brace languages, but personally think that it gets in-between
+  me and focusing on what's important when dealing with UX, wireframing, or general
+  design.
+- Lately I've taken the plungin into [Kouto Swiss][5] from [Nib][6], though the latter
+  clear influenced the former. Without sass, it was a lonely road not being able to use
+  bourban or compass, or hat with less. [Kouto Swiss][5] has added many features I haven't
+  seen in other plugins before, it's welcome addition to my toolkit.
+- If you're still coding without a linter like [JSHint][7], I'm not sure whether to
+  give you a high-five for all the hard work or question your dedication for only
+  stupidity.
+- Dropped Traceur for [6to5][8] because of it's more readable compiled code. You can read
+  more specifics on comparisons at their website.
 
-- [esnext][2] developers and contributors, that are giving us the possibility to use
-  ES6 syntax today, in the most lightweight way possible.
-- Facebook developers working on the [Regenerator][3] compiler, that are giving ES6
-  generators to us, today (also `async` and `await` statements <3).
-- The [Gulp][4] developers. Keep up the good work, looking forward for the v4.0.
-- People behind [Browserify][5], because CommonJS is the right thing!
-- [Karma][6], [JSHint][7] and [gulp-jsvalidate][8] developers, keeping our code safe.
-- All the great guys that brought to us those awesome gulp plugins, the list is
-  long, so thank you all.
+[1]:https://github.com/gulpjs/gulp
+[2]:https://github.com/slushjs/slush
+[3]:https://github.com/jadejs/jade
+[4]:https://github.com/learnboost/stylus
+[5]:https://github.com/krkn/kouto-swiss
+[6]:https://github.com/tj/nib
+[7]:https://github.com/jshint/jshint
+[8]:https://github.com/6to5/6to5
 
 
-[1]:http://github.com/Meesayen/gladius-draft
-[2]:http://github.com/esnext/esnext
-[3]:http://github.com/facebook/regenerator
-[4]:http://github.com/gulpjs/gulp
-[5]:http://github.com/substack/node-browserify
-[6]:http://github.com/karma-runner/karma
-[7]:http://github.com/jshint/jshint
-[8]:http://github.com/sindresorhus/gulp-jsvalidate
-[9]:http://github.com/Meesayen/gladius-forge
-[10]:http://github.com/slushjs/slush
+
+
