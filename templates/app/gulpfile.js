@@ -4,6 +4,11 @@ var gulp = require('gulp'), // This streaming build system
     reload = browserSync.reload, // Ensure the event emitter is set
     addsrc = require('gulp-add-src'), // Add more source files after init
     stylus = require('gulp-stylus'), // CSS Pre-processor
+    <% if (stylesPlugin == 'nib') { %>
+      nib = require('nib'),
+    <% } else if (stylesPlugin == 'kouto swiss') { %>
+      ks = require('kouto-swiss'),
+    <% } %>
     nib = require('nib'), // Plugin for Stylus
     jade = require('gulp-jade'), // Template language for HTML5
     rename = require('gulp-rename'), // Change filenames
@@ -26,7 +31,11 @@ gulp.task('styles', function(){
   gulp.src('src/styles/*.styl')
     .pipe(concat('app.styl'))
     .pipe(stylus({
+      <% if (stylesPlugin == 'nib') { %>
       use: nib(),
+      <% } else if (stylesPlugin == 'kouto swiss') { %>
+      use: ks(),
+      <% } %>
       compress: true
     }))
     .pipe(rename({suffix: '.min'}))
