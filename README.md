@@ -21,7 +21,7 @@ Slush generator (J)ade (ug)lify (s)tylus makes game development fun again!
 Installation + Usage
 -------------------
 
-Simply install [slush][2], as well as this generator, globally:
+Simply install [slush][2], as well as this generator globally:
 
 ```
 npm install -g slush slush-jugs
@@ -68,28 +68,28 @@ Thanks
 This boilerplate of mine is just a combination of great tools, all credit goes to
 those who actually put in all the hard work to create them.
 
-- The [Gulp][1] developers. Streaming build system, how nice and easy to setup.
+- The [Gulp][1] developers. Streaming build system - how nice and easy it is to setup.
 - There have been many [Slush][2] generators that have been instrumental in getting
   all those pesky apps developed on time. It's great to finally have an alternative
   to Yeoman.
 - Though [Jade][3] has been seen predominately as a server-side helper for templating,
   I find it incredibly helpful on front-end projects where I'm using a build system
-  anyways as the syntax is far easier to read and reduces duplication of segments with
+  anyways, as the syntax is far easier to read and reduces duplication of segments with
   partials.
 - From css to less to sass to [Stylus][4], it's been a long road with css pre-processors,
   but I finally found one that lets me drop all the redundant syntax and focus more on the
   design. I love my curly brace languages, but personally think that it gets in-between
-  me and focusing on what's important when dealing with UX, wireframing, or general
+  me and focusing on what's important when dealing with UX, wireframing or general
   design.
-- Lately I've taken the plungin into [Kouto Swiss][5] from [Nib][6], though the latter
+- Lately I've taken the plunge into [Kouto Swiss][5] from [Nib][6], though the latter
   clear influenced the former. Without sass, it was a lonely road not being able to use
   bourban or compass, or hat with less. [Kouto Swiss][5] has added many features I haven't
-  seen in other plugins before, it's welcome addition to my toolkit.
+  seen in other plugins before, it's a welcome addition to my toolkit.
 - If you're still coding without a linter like [JSHint][7], I'm not sure whether to
   give you a high-five for all the hard work or question your dedication for only
   stupidity.
-- Dropped Traceur for [6to5][8] because of it's more readable compiled code. You can read
-  more specifics on comparisons at their website.
+- Dropped Traceur for [6to5][8] because it has more readable compiled code. You can gather
+  more specifics on comparisons of the two at their website.
 
 [1]:https://github.com/gulpjs/gulp
 [2]:https://github.com/slushjs/slush
