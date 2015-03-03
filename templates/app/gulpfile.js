@@ -9,7 +9,6 @@ var gulp = require('gulp'), // This streaming build system
     <% } else if (stylesPlugin == 'kouto swiss') { %>
       ks = require('kouto-swiss'),
     <% } %>
-    nib = require('nib'), // Plugin for Stylus
     jade = require('gulp-jade'), // Template language for HTML5
     rename = require('gulp-rename'), // Change filenames
     notify = require('gulp-notify'), // Give notification on updates
