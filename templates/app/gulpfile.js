@@ -12,7 +12,7 @@ var gulp = require('gulp'), // This streaming build system
     jade = require('gulp-jade'), // Template language for HTML5
     rename = require('gulp-rename'), // Change filenames
     notify = require('gulp-notify'), // Give notification on updates
-    to5 = require('gulp-6to5'), // 6to5 ECMAScript transpiler
+    babel = require('gulp-babel'), // Babel ECMAScript transpiler (formerly 6to5)
     concat = require('gulp-concat'), // Concatenate files together
     minifycss = require('gulp-minify-css'), // Make css smaller and more digestable
     minifyjs = require('gulp-uglify'), // Make js smaller and more digestable
@@ -59,7 +59,7 @@ gulp.task('scripts', function(){
   ])
     .pipe(jshint({ esnext: true }))
     .pipe(jshint.reporter(stylish))
-    .pipe(to5({ blacklist: ["useStrict"] }))
+    .pipe(babel({ blacklist: ["useStrict"] }))
     .pipe(addsrc([
       'src/scripts/lib/*.js',
       'src/scripts/vendor/*.js'
@@ -74,7 +74,7 @@ gulp.task('scripts', function(){
   gulp.src('src/scripts/app.js')
     .pipe(jshint({ esnext: true }))
     .pipe(jshint.reporter(stylish))
-    .pipe(to5({ blacklist: ['useStrict'] }))
+    .pipe(babel({ blacklist: ['useStrict'] }))
     .pipe(rename({ suffix: '.min'}))
     .pipe(minifyjs())
     .pipe(gulp.dest('dist/scripts'))

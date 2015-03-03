@@ -6,8 +6,8 @@ slush-jugs
 Slush generator (J)ade (ug)lify (s)tylus makes game development fun again!
 
 - **Browser Sync** : *Live reloading system*
-- **6to5** : *ES6 to ES5 compiler*
-- **Jshint** : *Lint your javascript in its ES6 format*
+- **Babel** : *ES.Next to ES5 compiler formerly called 6to5*
+- **Jshint** : *Lint your javascript in its ES.Next format*
 - **Jade** : *Templating system made easy*
 - **Stylus** : *Powerful CSS Preprocessor with a beautiful syntax*
   - **Nib** : **[optional]** *Choosing this plugin on init gives you plenty of extensions*
@@ -16,7 +16,7 @@ Slush generator (J)ade (ug)lify (s)tylus makes game development fun again!
   - *Doesn't compress vendors folder*
   - *concats all scripts together into two files*
     - **'runtime.min.js'** : *Contains all scripts that compose the application*
-    - **'app.min.js'** : *Contains the initialization and execution logic*
+    - **'app.min.js'** : *Entrypoint to executing the application.*
 
 Installation + Usage
 -------------------
@@ -88,8 +88,8 @@ those who actually put in all the hard work to create them.
 - If you're still coding without a linter like [JSHint][7], I'm not sure whether to
   give you a high-five for all the hard work or question your dedication for only
   stupidity.
-- Dropped Traceur for [6to5][8] because it has more readable compiled code. You can gather
-  more specifics on comparisons of the two at their website.
+- Dropped Traceur for [Babel][8] (formerly 6to5) because it has more readable compiled
+  code. You can gather more specifics on comparisons of the two at their website.
 
 [1]:https://github.com/gulpjs/gulp
 [2]:https://github.com/slushjs/slush
@@ -98,8 +98,4 @@ those who actually put in all the hard work to create them.
 [5]:https://github.com/krkn/kouto-swiss
 [6]:https://github.com/tj/nib
 [7]:https://github.com/jshint/jshint
-[8]:https://github.com/6to5/6to5
-
-
-
-
+[8]:https://github.com/babel/babel
