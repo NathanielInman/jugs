@@ -19,13 +19,10 @@ var defaults = (function () {
     appName    : workingDirName,
     userName   : user.name || osUserName,
     authorEmail: user.email || '',
-
     serverPort: 3000,
-
     modules: {
       stylesPlugin: 'Nib'
     },
-
     source: {
       base           : 'src/',
       styles         : 'styles/',
@@ -34,7 +31,6 @@ var defaults = (function () {
       templates      : 'views/',
       partials       : 'partials/'
     },
-
     output: {
       base   : 'dist/',
       styles : 'css/',
