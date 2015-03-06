@@ -19,13 +19,13 @@ var gulp = require('gulp'), // This streaming build system
 
 // Resources - ensure root resources are moved to dist
 gulp.task('resources',function(){
-  gulp.src('src/*')
+  return gulp.src('src/*')
     .pipe(gulp.dest('dist/'));
 }); //end 'resources' task
 
 // Styles - pre-process all styles and push the css to dist
 gulp.task('styles', function(){
-  gulp.src('src/styles/*.styl')
+  return gulp.src('src/styles/*.styl')
     .pipe(concat('app.styl'))
     .pipe(stylus({
       <% if (stylesPlugin == 'nib') { %>use: nib(),
@@ -41,16 +41,16 @@ gulp.task('styles', function(){
 
 // Jade - convert Jade to HTML
 gulp.task('jade', function(){
-  gulp.src('src/views/*.jade')
+  return gulp.src('src/views/*.jade')
     .pipe(jade()) //compressed
     .pipe(gulp.dest('dist/'))
     .pipe(notify({ message: 'Jade finished compiling to <%= file.relative %>.' }));
 }); //end 'jade' task
 
 // Scripts - concatenate & Minify Javascript
-gulp.task('scripts', function(){
+gulp.task('runtime scripts', function(){
   // Runtime Scripts
-  gulp.src([
+  return gulp.src([
     'src/scripts/common/*.js'
   ])
     .pipe(jshint({ esnext: true }))
@@ -65,9 +65,10 @@ gulp.task('scripts', function(){
     .pipe(minifyjs())
     .pipe(gulp.dest('dist/scripts'))
     .pipe(notify({ message: 'Script <%= file.relative %> complete.' }));
-
+});
+gulp.task('app scripts',function(){
   // Entry script app.js [Executes runtime]
-  gulp.src('src/scripts/app.js')
+  return gulp.src('src/scripts/app.js')
     .pipe(jshint({ esnext: true }))
     .pipe(jshint.reporter(stylish))
     .pipe(babel({ blacklist: ['useStrict'] }))
@@ -77,8 +78,11 @@ gulp.task('scripts', function(){
     .pipe(notify({ message: 'Script <%= file.relative %> complete.' }));
 }); //end 'scripts' task
 
+// Put all the build  tasks into one task
+gulp.task('build', ['styles','jade','resources','app scripts','runtime scripts']);
+
 // The browser-sync task will start a server but not watch any files.
-gulp.task('browser-sync', function(){
+gulp.task('browser-sync', ['build'], function(){
   browserSync({
     server:{
       baseDir: 'dist/'
@@ -103,4 +107,4 @@ gulp.task('watch', ['browser-sync'], function(){
 }); //end 'watch' task
 
 // Default Task
-gulp.task('default', ['resources','styles','scripts','jade','watch']);
+gulp.task('default', ['watch']);
