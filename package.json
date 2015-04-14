@@ -40,25 +40,25 @@
     "build"
   ],
   "dependencies": {
+    "del": "^1.1.1",
     "gulp": "^3.8.11",
     "gulp-conflict": "^0.3.0",
     "gulp-filter": "^2.0.2",
-    "gulp-rename": "^1.2.0",
-    "gulp-install": "^0.2.0",
-    "gulp-load-plugins": "^0.8.1",
+    "gulp-install": "^0.4.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-rename": "^1.2.2",
     "gulp-template": "^3.0.0",
     "iniparser": "^1.0.5",
-    "del": "^1.1.1",
-    "inquirer": "^0.8.0"
+    "inquirer": "^0.8.2"
   },
   "devDependencies": {
-    "gulp-bump": "^0.2.2",
-    "gulp-git": "^1.0.1",
-    "gulp-jshint": "^1.9.2",
+    "gulp-bump": "^0.3.0",
+    "gulp-git": "^1.1.1",
+    "gulp-jshint": "^1.10.0",
     "gulp-tag-version": "^1.2.1",
     "jshint-stylish": "^1.0.1",
     "gulp-jsvalidate": "^2.0.0",
-    "semver": "^4.3.1"
+    "semver": "^4.3.3"
   },
   "bugs": {
     "url": "https://github.com/NathanielInman/slush-jugs/issues"
