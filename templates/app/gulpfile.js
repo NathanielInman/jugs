@@ -100,7 +100,7 @@ gulp.task('watch', ['browser-sync'], function(){
   gulp.watch('src/styles/**/*.styl', ['styles', reload]);
 
   // Watch javascript files
-  gulp.watch('src/scripts/**/*.js', ['scripts', reload]);
+  gulp.watch('src/scripts/**/*.js', ['app scripts','runtime scripts', reload]);
 
   // Watch jade files
   gulp.watch('src/templates/**/*.jade', ['jade', reload]);
