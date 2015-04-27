@@ -273,7 +273,7 @@ Ion.prototype.draw=function(atom){
  * @return {Void}         Function doesn't return a value
  */
 Ion.prototype.modulate=function(atom){
-  if(!(typeof this.m === 'function'))return;
+  if(typeof this.m !== 'function')return;
   this.m(atom,this.particle[atom].x,this.particle[atom].y,this.particle[atom].dx,this.particle[atom].dy);
 };
 
@@ -331,7 +331,7 @@ Ion.prototype.process=function(){
  */
 Ion.prototype.getFrame=function(){
   ctx.fillStyle=this.color;
-  for(atom in this.particle){
+  for(var atom in this.particle){
     p=this.particle[atom]; //reference to clean up code
     if(p.c==p.d)continue; //skip a done movement process
     this.wind(atom);

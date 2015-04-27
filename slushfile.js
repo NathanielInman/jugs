@@ -216,7 +216,9 @@ gulp.task('default', function (done) {
           if (file.extname === '.es6') {
             file.extname = answers.sourceEsnextExt;
           }
-          if (file.basename[0] === '_') {
+          if (file.basename[0] === '_' && file.basename[1] === '_') {
+            file.basename = '_' + file.basename.slice(2);
+          }else if (file.basename[0] === '_'){
             file.basename = '.' + file.basename.slice(1);
           }
           if (answers.sourceCustomization) {
