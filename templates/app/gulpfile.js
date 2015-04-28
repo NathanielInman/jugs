@@ -4,9 +4,7 @@ var gulp = require('gulp'), // This streaming build system
     reload = browserSync.reload, // Ensure the event emitter is set
     addsrc = require('gulp-add-src'), // Add more source files after init
     stylus = require('gulp-stylus'), // CSS Pre-processor
-    <% if (stylesPlugin == 'nib') { %>nib = require('nib'),
-    <% } else if (stylesPlugin == 'kouto swiss') { %>ks = require('kouto-swiss'),
-    <% } %>
+    <% if (stylesPlugin == 'nib') { %>nib = require('nib'),<% } else if (stylesPlugin == 'kouto swiss') { %>ks = require('kouto-swiss'),<% } %>
     jade = require('gulp-jade'), // Template language for HTML5
     rename = require('gulp-rename'), // Change filenames
     notify = require('gulp-notify'), // Give notification on updates
@@ -19,7 +17,7 @@ var gulp = require('gulp'), // This streaming build system
 
 // Styles - pre-process all styles and push the css to dist
 gulp.task('styles', function(){
-  return gulp.src('src/styles/**/*.styl')
+  return gulp.src('src/styles/**/!(_)*.styl')
     .pipe(stylus({
       <% if (stylesPlugin == 'nib') { %>use: nib(),<% } else if (stylesPlugin == 'kouto swiss') { %>use: ks(),<% } %>
       compress: true
@@ -51,7 +49,7 @@ gulp.task('scripts', function(){
     .pipe(notify({ message: 'Script <%= file.relative %> complete.' }));
 });
 
-// Resources - ensure root resources are moved to dist
+// Assets - ensure root resources are moved to dist
 gulp.task('assets',function(){
   return gulp.src('src/assets/**/*')
     .pipe(gulp.dest('dist/'));
@@ -65,14 +63,13 @@ gulp.task('browser-sync', ['build'], function(){
   browserSync({
     server:{
       baseDir: 'dist/'
-    },
-    port:<%= serverPort %>
+    }
   });
 }); //end 'browser-sync' task
 
 // Watch
 gulp.task('watch', ['browser-sync'], function(){
-  // Watch resource files
+  // Watch all assets
   gulp.watch('src/assets/**/*',['assets', reload]);
 
   // Watch stylus files

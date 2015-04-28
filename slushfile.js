@@ -177,10 +177,6 @@ gulp.task('default', function (done) {
       filter : filterPaths,
       default: defaults.output.scripts
     }, {
-      name   : 'serverPort',
-      message: 'Which server port should be used during development?',
-      default: defaults.serverPort
-    }, {
       type   : 'confirm',
       name   : 'moveon',
       message: 'Continue?'
