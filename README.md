@@ -15,7 +15,7 @@ Slush generator (J)ade (ug)lify (s)tylus makes development fun again!
 
 ## Table of Contents
 
-* [Installation Usage](#installation)
+* [Installation](#installation)
 * [File Structure](#file-structure)
 * [Notes](#notes)
 * [Thanks](#thanks)
@@ -50,23 +50,23 @@ project
 ├─dist
 │ ├<<────(assets are copied here on compile)
 │ ├─scripts
-│ │ └─file.js
+│ │ └─ file.js
 │ ├─styles
-│ │ └─main.css
+│ │ └─ main.css
 │ └─ index.html
 ├─ src
 │ ├─assets
-│ │ └─(imgs/html/pdf/other go here)
+│ │ └─ (imgs/html/pdf/other go here)
 │ ├─scripts
-│ │ └─file.js
+│ │ └─ file.js
 │ ├─styles
-│ │ ├─boilerplate.styl
-│ │ └─main.styl
+│ │ ├─ boilerplate.styl
+│ │ └─ main.styl
 │ └─views
 │   ├─partials
-│   │ ├─footer.jade
-│   │ ├─head.jade
-│   │ └─scripts.jade
+│   │ ├─ _footer.jade
+│   │ ├─ _head.jade
+│   │ └─ _scripts.jade
 │   └─ index.jade
 ├─ gulpfile.js
 ├─ package.json
