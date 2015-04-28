@@ -1,9 +1,8 @@
-slush-jugs
-=================
+# slush-jugs
 
 [![Build Status](https://travis-ci.org/NathanielInman/slush-jugs.svg?branch=master)](https://travis-ci.org/NathanielInman/slush-jugs) [![dependency Status](https://david-dm.org/NathanielInman/slush-jugs/status.svg?style=flat)](https://david-dm.org/NathanielInman/slush-jugs) [![devDependency Status](https://david-dm.org/NathanielInman/slush-jugs/dev-status.svg?style=flat)](https://david-dm.org/NathanielInman/slush-jugs#info=devDependencies)
 
-Slush generator (J)ade (ug)lify (s)tylus makes game development fun again!
+Slush generator (J)ade (ug)lify (s)tylus makes development fun again!
 
 - **Browser Sync** : *Live reloading system*
 - **Babel** : *ES.Next to ES5 compiler formerly called 6to5*
@@ -13,13 +12,13 @@ Slush generator (J)ade (ug)lify (s)tylus makes game development fun again!
   - **Nib** : **[optional]** *Choosing this plugin on init gives you plenty of extensions*
   - **Kouto Swiss** : **[optional]** *Alternative plugin that gives tons of additional features*
 - **Uglify** : *Both CSS and JS to make your client payloads small and quick to load*
-  - *Doesn't compress vendors folder*
-  - *concats all scripts together into two files*
-    - **'runtime.min.js'** : *Contains all scripts that compose the application*
-    - **'app.min.js'** : *Entrypoint to executing the application.*
 
-Installation + Usage
--------------------
+* [Installation + Usage](#installation)
+* [File Structure](#file-structure)
+* [Notes](#notes)
+* [Thanks](#thanks)
+
+## Installation
 
 Simply install [slush][2], as well as this generator globally:
 
@@ -38,8 +37,41 @@ gulp
 
 And just like that, you're on the way to making your app!
 
-Notes
----------------------
+## File Structure
+
+No files are concatenated together, use includes in your jade files and
+imports in your stylus files. If you're hoping to use a modular system in
+your javascript then use the "slush-justice" generator instead.
+
+```
+project
+├─dist
+│ ├<<────(assets are copied here on compile)
+│ ├─scripts
+│ │ └─file.js
+│ ├─styles
+│ │ └─main.css
+│ └─ index.html
+├─ src
+│ ├─assets
+│ │ └─(imgs/html/pdf/other go here)
+│ ├─scripts
+│ │ └─file.js
+│ ├─styles
+│ │ ├─boilerplate.styl
+│ │ └─main.styl
+│ └─views
+│   ├─partials
+│   │ ├─footer.jade
+│   │ ├─head.jade
+│   │ └─scripts.jade
+│   └─ index.jade
+├─ gulpfile.js
+├─ package.json
+└─ readme.md
+```
+
+## Notes
 
 The boilerplate comes setup with the perspective of a video game developer, but
 can be easily transitioned into other avenues. Two very basic libraries are included
@@ -62,8 +94,7 @@ library and sets up a few variables that I find very useful:
 Ion is an extremely lightweight particle engine made for canvas 2d context. The
 library is well-documented.
 
-Thanks
----------------------
+## Thanks
 
 This boilerplate of mine is just a combination of great tools, all credit goes to
 those who actually put in all the hard work to create them.
