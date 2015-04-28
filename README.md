@@ -13,7 +13,9 @@ Slush generator (J)ade (ug)lify (s)tylus makes development fun again!
   - **Kouto Swiss** : **[optional]** *Alternative plugin that gives tons of additional features*
 - **Uglify** : *Both CSS and JS to make your client payloads small and quick to load*
 
-* [Installation + Usage](#installation)
+## Table of Contents
+
+* [Installation Usage](#installation)
 * [File Structure](#file-structure)
 * [Notes](#notes)
 * [Thanks](#thanks)
