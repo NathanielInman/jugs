@@ -1,9 +1,13 @@
-/* jshint -W079 */
+/// <reference path="typings/node/node.d.ts"/>
+// load plugins
 var gulp      = require('gulp'),
-    $         = require('gulp-load-plugins')(),
     inquirer  = require('inquirer'),
     del       = require('del'),
-    iniparser = require('iniparser');
+    iniparser = require('iniparser'),
+    conflict  = require('gulp-conflict'),
+    install   = require('gulp-install'),
+    rename    = require('gulp-rename'),
+    template  = require('gulp-template');
 
 var defaults = (function () {
   var homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE,
@@ -14,12 +18,11 @@ var defaults = (function () {
 
   if (require('fs').existsSync(configFile)) {
     user = iniparser.parseSync(configFile).user;
-  }
+  } //end if
   return {
     appName    : workingDirName,
     userName   : user.name || osUserName,
     authorEmail: user.email || '',
-    serverPort: 3000,
     modules: {
       stylesPlugin: 'Nib'
     },
@@ -27,7 +30,6 @@ var defaults = (function () {
       base           : 'src/',
       styles         : 'styles/',
       scripts        : 'scripts/',
-      esnextExtension: '.es6.js',
       templates      : 'views/',
       partials       : 'partials/'
     },
@@ -39,25 +41,34 @@ var defaults = (function () {
   };
 })();
 
+// Limit the results down to the packages installed
 var filterModuleNames = function (val) {
   return val.toLowerCase().replace(/\+(\w)/, function (match, $1) {
     return $1.toUpperCase();
   });
 };
+
+// Replace the paths with the specified paths the user gave
 var filterPaths = function (val) {
   return val.replace(/(\w)([^\/])$/, '$1$2/');
 };
+
+// Replace the normal extension with the one the user gave
 var filterExt = function (val) {
   return val.replace(/^([^\.])/, '.$1').replace(/\W+/g, '.');
 };
 
+// Does the user want to edit the source folder structure?
 var sourceCustomizationWanted = function (answers) {
   return !!answers.sourceCustomization;
 };
+
+// Does the user want to edit the distribution folder structure?
 var outputCustomizationWanted = function (answers) {
   return !!answers.outputCustomization;
 };
 
+// If they don't specify specifics, we need to have defaults ready
 var handleDefaults = function (answers) {
   if (!answers.sourceCustomization) {
     answers.sourceBase = defaults.source.base;
@@ -72,10 +83,10 @@ var handleDefaults = function (answers) {
     answers.outputStyles = defaults.output.styles;
     answers.outputScripts = defaults.output.scripts;
   }
-  answers.sourceEsnextModuleExt = answers.sourceEsnextExt.replace(/\.js$/, '');
   return answers;
 };
 
+// The default gulp task is ran when slush is executed
 gulp.task('default', function (done) {
   inquirer.prompt([{
       name   : 'name',
@@ -136,12 +147,6 @@ gulp.task('default', function (done) {
       filter : filterPaths,
       default: defaults.source.scripts
     }, {
-      name   : 'sourceEsnextExt',
-      message: 'The extension of your esnext files:',
-      when   : sourceCustomizationWanted,
-      filter : filterExt,
-      default: defaults.source.esnextExtension
-    }, {
       name   : 'sourceTemplates',
       message: 'The folder for your templates:',
       when   : sourceCustomizationWanted,
@@ -183,17 +188,11 @@ gulp.task('default', function (done) {
     }],
     function (answers) {
       var dirMap;
-      answers.file = {
-        relative: '<%= file.relative %>'
-      };
-
-      if (!answers.moveon) {
-        return done();
-      }
-
+      
+      if (!answers.moveon) return done();
+      answers.file = { relative: '<%= file.relative %>' };
       answers = handleDefaults(answers);
       answers.year = (new Date()).getFullYear();
-
       dirMap = {
         'src'     : answers.sourceBase,
         'styles'  : answers.sourceStyles,
@@ -201,37 +200,33 @@ gulp.task('default', function (done) {
         'partials': answers.sourcePartials,
         'views'   : answers.sourceTemplates
       };
-
       gulp.src([
         __dirname + '/templates/app/**'
       ])
-        .pipe($.template(answers, {
+        .pipe(template(answers, {
           interpolate: /<%=\s([\s\S]+?)%>/g
         }))
-        .pipe($.rename(function (file) {
-          if (file.extname === '.es6') {
-            file.extname = answers.sourceEsnextExt;
-          }
-          if (file.basename[0] === '_' && file.basename[1] === '_') {
-            file.basename = '_' + file.basename.slice(2);
-          }else if (file.basename[0] === '_'){
+        .pipe(rename(function (file) {
+          if (file.basename[0] === '_' && file.basename[1] === '_'){
+            file.basename = file.basename.slice(1);
+          } else if (file.basename[0] === '_') {
             file.basename = '.' + file.basename.slice(1);
-          }
+          } //end if
           if (answers.sourceCustomization) {
             file.dirname = file.dirname.replace(
               /^(src|views)\b|\/(scripts|styles|partials)\b/g,
               function (match, $1, $2) {
                 return dirMap[$1 || $2] || $1 || $2;
               });
-          }
+          } //end if
         }))
-        .pipe($.conflict('./'))
+        .pipe(conflict('./'))
         .pipe(gulp.dest('./'))
-        .pipe($.install())
+        .pipe(install())
         .on('finish', function () {
-          var
-            a = answers,
-            dirs = [];
+          var a = answers,
+              dirs = [];
+              
           if (a.sourceCustomization) {
             a.sourceBase !== 'src/' && dirs.push('./src');
             a.sourceScripts !== 'scripts/' && dirs.push('./' + a.sourceBase + 'scripts');
@@ -241,7 +236,7 @@ gulp.task('default', function (done) {
             del(dirs, done);
           } else {
             del(dirs, done);
-          }
+          } //end if
         });
     });
 });
