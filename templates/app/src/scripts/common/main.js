@@ -1,18 +1,3 @@
-/*
- * ┏━━━┳┓      ┏┓      ┏┳┓ ┏┳━━━┳━━━┓
- * ┃┏━┓┃┃      ┃┃      ┃┃┃ ┃┃┏━┓┃┏━┓┃
- * ┃┗━━┫┃┏┓┏┳━━┫┗━┓    ┃┃┃ ┃┃┃ ┗┫┗━━┓
- * ┗━━┓┃┃┃┃┃┃━━┫┏┓┃  ┏┓┃┃┃ ┃┃┃┏━╋━━┓┃
- * ┃┗━┛┃┗┫┗┛┣━━┃┃┃┃  ┃┗┛┃┗━┛┃┗┻━┃┗━┛┃
- * ┗━━━┻━┻━━┻━━┻┛┗┛  ┗━━┻━━━┻━━━┻━━━┛
- * The following few lines are to help jshint linting
- **********************************/
-
-var ctx = ctx || function () {};
-var v = v || {w: 0, h: 0};
-var r = r || function () {};
-var Ion = Ion || function () {};
-
 /**
  * This makeItRain demo constantly keeps 100 particles (dollars) on the screen
  *
@@ -68,10 +53,10 @@ function app() {
   makeItRain.clear = function () { //overriding the clear frame function
     ctx.fillStyle = '#000';
     ctx.fillRect(0, 0, v.w, v.h);
+    ctx.font = '18px Courier New';
     ctx.drawImage(shirt, shirtLeft, 0, shirtWidth, v.h);
     ctx.drawImage(logo, v.w / 2 - logoWidth / 2, v.h / 2 - logoHeight / 2, logoWidth, logoHeight);
     ctx.fillStyle = 'rgb(255,255,0)';
-    ctx.font = '18px Courier New';
     ctx.fillText(headerText, 5, v.h - 5);
   };
   makeItRain.populate(function(){return r(200,500);}); //pass a custom wait function between particles

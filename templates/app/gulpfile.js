@@ -77,7 +77,7 @@ gulp.task('watch', ['browser-sync'], function(){
   gulp.watch('src/scripts/**/*.js', ['scripts', reload]);
 
   // Watch jade files
-  gulp.watch('src/templates/**/*.jade', ['jade', reload]);
+  gulp.watch('src/views/**/*.jade', ['jade', reload]);
 }); //end 'watch' task
 
 // Default Task
