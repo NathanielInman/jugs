@@ -5,20 +5,32 @@
 Slush generator (J)ade (ug)lify (s)tylus makes development fun again!
 
 - **Browser Sync** : *Live reloading system*
-- **Babel** : *ES.Next to ES5 compiler formerly called 6to5*
-- **Jshint** : *Lint your javascript in its ES.Next format*
+- **Babel** : *ES2015+ to ES5 compiler formerly called 6to5*
+- **Eslint** : *Lint your javascript in its ES2015 format*
 - **Jade** : *Templating system made easy*
 - **Stylus** : *Powerful CSS Preprocessor with a beautiful syntax*
   - **Nib** : **[optional]** *Choosing this plugin on init gives you plenty of extensions*
   - **Kouto Swiss** : **[optional]** *Alternative plugin that gives tons of additional features*
 - **Uglify** : *Both CSS and JS to make your client payloads small and quick to load*
+- **Webpack** : *Module bundler, allowing ES2015 modules now*
 
 ## Table of Contents
 
+* [Changes](#changes)
 * [Installation](#installation)
 * [File Structure](#file-structure)
 * [Notes](#notes)
 * [Thanks](#thanks)
+
+## Changes
+
+```
+11-25-2015:
+  Using ESLint instead of JSHint (included settings file as .eslintrc)
+  Using Webpack to handle ES2015 modules
+  Gulpfile is now ES2015 code
+  Removed annoying notification messages
+```
 
 ## Installation
 
@@ -41,16 +53,14 @@ And just like that, you're on the way to making your app!
 
 ## File Structure
 
-No files are concatenated together, use includes in your jade files and
-imports in your stylus files. If you're hoping to use a modular system in
-your javascript then use the "slush-justice" generator instead.
+Javascript files are compiled together based upon their dependencies declared using ES2015 `import` statements. You can add additional entry files in the gulpfile under the `scripts` task. Use `include` for jade files and `import` for stylus files.
 
 ```
 project
 ├─dist
 │ ├<<────(assets are copied here on compile)
 │ ├─scripts
-│ │ └─ file.js
+│ │ └─ file.js (+depends.js)
 │ ├─styles
 │ │ └─ main.css
 │ └─ index.html
@@ -58,7 +68,8 @@ project
 │ ├─assets
 │ │ └─ (imgs/html/pdf/other go here)
 │ ├─scripts
-│ │ └─ file.js
+│ │ ├─ depends.js
+│ │ └─ file.js (imports depends.js)
 │ ├─styles
 │ │ ├─ boilerplate.styl
 │ │ └─ main.styl
@@ -105,6 +116,8 @@ those who actually put in all the hard work to create them.
 - There have been many [Slush][2] generators that have been instrumental in getting
   all those pesky apps developed on time. It's great to finally have an alternative
   to Yeoman.
+- [Webpack][9] has been an instrumental boost in productivity and clean code, allowing the
+  the use of the ES2015 module system.
 - Though [Jade][3] has been seen predominately as a server-side helper for templating,
   I find it incredibly helpful on front-end projects where I'm using a build system
   anyways, as the syntax is far easier to read and reduces duplication of segments with
@@ -118,7 +131,7 @@ those who actually put in all the hard work to create them.
   clear influenced the former. Without sass, it was a lonely road not being able to use
   bourban or compass, or hat with less. [Kouto Swiss][5] has added many features I haven't
   seen in other plugins before, it's a welcome addition to my toolkit.
-- If you're still coding without a linter like [JSHint][7], I'm not sure whether to
+- If you're still coding without a linter like [ESLint][7], I'm not sure whether to
   give you a high-five for all the hard work or question your dedication for only
   stupidity.
 - Dropped Traceur for [Babel][8] (formerly 6to5) because it has more readable compiled
@@ -130,5 +143,6 @@ those who actually put in all the hard work to create them.
 [4]:https://github.com/learnboost/stylus
 [5]:https://github.com/krkn/kouto-swiss
 [6]:https://github.com/tj/nib
-[7]:https://github.com/jshint/jshint
+[7]:http://eslint.org
 [8]:https://github.com/babel/babel
+[9]:https://webpack.github.io

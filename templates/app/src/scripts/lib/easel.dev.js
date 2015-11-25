@@ -1,4 +1,3 @@
-//jshint ignore: start
 /**
  * Easel sets up a canvas that will fit the perspective of the window and
  * automatically adjust in size when the window is resized. It also makes
@@ -16,25 +15,25 @@
  * Easel.config(): override to set up viewport or canvas specific variables
  * Easel.onDraw(): override to set up personallized clear canvas
  */
-var Easel=(function(a) {
+export var Easel=(function(a){
     if(!!window.CanvasRenderingContext2D){Easel.activated=true;}else{return false;}
-    W = window;
-    D = document;
-    M = Math;
+    var W = window,
+    D = document,
+    M = Math,
     C = D.createElement("canvas");
-    ctx = C.getContext("2d");
-    $ = function(c) {
+    window.ctx = C.getContext("2d");
+    var $ = function(c) {
         return D.getElementById(c)
-    };
+    },
     q = function() {
-        C.width = v.w;
-        C.height = v.h
-    };
+        C.width = window.v.w;
+        C.height = window.v.h
+    },
     u = function() {
         ctx = C.getContext("2d")
-    };
+    },
     w = function() {
-        d = W;
+        var d = W,
         b = "inner";
         if (!(d.innerWidth)) {
             b = "client";
@@ -45,7 +44,7 @@ var Easel=(function(a) {
             h: d[b + "Height"]
         }
     };
-    v = w();
+    window.v = w();
     a.background = "#000";
     a.redraw = function() {
       if(!a.started){a.config();a.started=true}
@@ -55,7 +54,7 @@ var Easel=(function(a) {
     a.config = function(){};
     a.onDraw = function(){
       ctx.fillStyle = a.background;
-      ctx.fillRect(0, 0, v.w, v.h)
+      ctx.fillRect(0, 0, window.v.w, window.v.h)
     };
     W.r = function(f, g, e) {
         f = !g ? 0 * (g = f) : f > g ? g + (d = f) - g : f;
@@ -70,7 +69,7 @@ var Easel=(function(a) {
         a.redraw()
     };
     D.body.appendChild(C);
-    d = document.createElement("style");
+    var d = document.createElement("style");
     d.type = "text/css";
     d.rel = "stylesheet";
     d.innerHTML = "body{background-color:" + a.background + ";margin:0;}canvas{position:fixed;left:0;top:0;right:0;bottom:0;}";

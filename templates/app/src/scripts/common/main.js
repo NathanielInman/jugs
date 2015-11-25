@@ -1,11 +1,11 @@
+import Ion from '../lib/ion.dev';
+
 /**
  * This makeItRain demo constantly keeps 100 particles (dollars) on the screen
  *
  * @type {Class} Ion utilizes the ion.js library
  */
-function app() {
-  "use strict";
-
+export default function makeItRain() {
   // The following will show at the bottom left of the screen
   var headerText = '<%= name %> Version <%= appVersion %> by <%= authorName %>';
 
