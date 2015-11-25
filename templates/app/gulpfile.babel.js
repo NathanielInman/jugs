@@ -1,6 +1,6 @@
 import gulp                  from 'gulp'; 
 import stylus                from 'gulp-stylus';
-<% if (stylesPlugin == 'nib'){%>import nib                   from 'nib';<%}else if (stylesPlugin == 'kouto swiss'){%>import ks                    from 'kouto-swiss';<% } %>  
+<% if (stylesPlugin == 'nib'){ %>import nib                   from 'nib';<% }else if (stylesPlugin == 'kouto swiss'){ %>import ks                    from 'kouto-swiss';<% } %>  
 import webpack               from 'webpack-stream';
 import jade                  from 'gulp-jade';
 import named                 from 'vinyl-named';
