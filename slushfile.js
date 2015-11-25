@@ -1,4 +1,3 @@
-/// <reference path="typings/node/node.d.ts"/>
 // load plugins
 var gulp      = require('gulp'),
     inquirer  = require('inquirer'),
