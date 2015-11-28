@@ -1,39 +1,30 @@
-var gulp                  = require('gulp'),
-    stylus                = require('gulp-stylus'),
-<% if (stylesPlugin == 'nib'){ %>
-    nib                   = require('nib'),
-<% }else if (stylesPlugin == 'kouto swiss'){ %>
-    ks                    = require('kouto-swiss'),<% } %>  
-    webpack               = require('webpack-stream'),
-    jade                  = require('gulp-jade'),
-    named                 = require('vinyl-named'),
-    uglify                = require('gulp-uglify'),
-    eslint                = require('gulp-eslint'),
-    browserSync           = require('browser-sync'),
-    reload                = browserSync.reload;
+import gulp                  from 'gulp';
+import stylus                from 'gulp-stylus';
+import ks                    from 'kouto-swiss';
+import webpack               from 'webpack-stream';
+import jade                  from 'gulp-jade';
+import named                 from 'vinyl-named';
+import uglify                from 'gulp-uglify';
+import eslint                from 'gulp-eslint';
+import browserSync, {reload} from 'browser-sync';
 
 // Styles - pre-process all styles and push the css to dist
-gulp.task('styles', function(){
+gulp.task('styles', ()=>
   gulp.src('src/styles/**/!(_)*.styl')
     .pipe(stylus({
-<% if (stylesPlugin == 'nib'){ %>
-      use: nib(),
-<% } else if (stylesPlugin == 'kouto swiss'){ %>
-      use: ks(),<% } %>
+      use: ks(),
       compress: true
     }))
-    .pipe(gulp.dest('dist/styles/'));
-});
+    .pipe(gulp.dest('dist/styles/')));
 
 // Jade - convert Jade to HTML
-gulp.task('jade', function(){
+gulp.task('jade', ()=>
   gulp.src('src/views/**/!(_)*.jade')
     .pipe(jade()) //compressed
-    .pipe(gulp.dest('dist/'));
-});
+    .pipe(gulp.dest('dist/')));
 
 // Scripts - concatenate & Minify Javascript
-gulp.task('scripts', function(){
+gulp.task('scripts', ()=>
   gulp.src(['src/scripts/app.js'])
     .pipe(eslint())
     .pipe(eslint.format())
@@ -49,26 +40,23 @@ gulp.task('scripts', function(){
         ]
       }
     }))
-    //.pipe(uglify())
-    .pipe(gulp.dest('dist/scripts'));
-});
+    .pipe(uglify())
+    .pipe(gulp.dest('dist/scripts')));
 
 // Assets - ensure root resources are moved to dist
-gulp.task('assets', function(){
+gulp.task('assets', ()=>
   gulp.src('src/assets/**/*')
-    .pipe(gulp.dest('dist/'));
-});
+    .pipe(gulp.dest('dist/')));
 
 // Put all the build  tasks into one task
 gulp.task('build', ['styles','jade','assets','scripts']);
 
 // The browser-sync task will start a server but not watch any files.
-gulp.task('browser-sync', ['build'], function(){
-  browserSync({server:{baseDir: 'dist/'}});
-});
+gulp.task('browser-sync', ['build'], ()=>
+  browserSync({server:{baseDir: 'dist/'}}));
 
 // Watch
-gulp.task('watch', ['browser-sync'], function(){
+gulp.task('watch', ['browser-sync'], ()=>{
   // Watch all assets
   gulp.watch('src/assets/**/*',['assets', reload]);
 

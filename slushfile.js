@@ -22,9 +22,6 @@ var defaults = (function () {
     appName    : workingDirName,
     userName   : user.name || osUserName,
     authorEmail: user.email || '',
-    modules: {
-      stylesPlugin: 'Nib'
-    },
     source: {
       base           : 'src/',
       styles         : 'styles/',
@@ -111,17 +108,6 @@ gulp.task('default', function (done) {
       name   : 'userName',
       message: 'What is the github username?',
       default: defaults.userName
-    }, {
-      type   : 'list',
-      name   : 'stylesPlugin',
-      message: 'Would you prefer a plugin with Stylus?',
-      choices: [
-        'No',
-        'Nib',
-        'Kouto Swiss'
-      ],
-      filter : filterModuleNames,
-      default: defaults.modules.stylesPlugin
     }, {
       type   : 'confirm',
       name   : 'sourceCustomization',
