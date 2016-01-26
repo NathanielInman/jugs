@@ -25,6 +25,9 @@ Slush generator (J)ade (ug)lify (s)tylus makes development fun again!
 ## Changes
 
 ```
+01-27-2016:
+  Webpack now uses commons bundler for vendor files
+  ESLint now ignores vendor files
 11-25-2015:
   Using ESLint instead of JSHint (included settings file as .eslintrc)
   Using Webpack to handle ES2015 modules
