@@ -15,6 +15,7 @@
  * Easel.config(): override to set up viewport or canvas specific variables
  * Easel.onDraw(): override to set up personallized clear canvas
  */
+/*eslint-disable*/
 export var Easel=(function(a){
     if(!!window.CanvasRenderingContext2D){Easel.activated=true;}else{return false;}
     var W = window,
@@ -77,3 +78,4 @@ export var Easel=(function(a){
     q();
     return a;
 })(Easel || (Easel = {}));
+/*eslint-enable*/

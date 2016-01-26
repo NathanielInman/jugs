@@ -1,11 +1,13 @@
-import {Easel} from './lib/easel.dev';
+import {Easel} from './vendor/easel';
 import makeItRain from './common/main';
 
 /**
- * Main anonymous function that launches the web application
- * if easel was able to create a canvas (if it's supported)
+ * Launch application if easel was able to create a canvas,
+ * if it wasn't then we know canvas isn't supported
  */
-((noscript)=>{
+{
+  let noscript = document.getElementById('noscript');
+
   if(!Easel.activated){
     noscript.innerHTML = `
     <p class="browsehappy">
@@ -18,4 +20,4 @@ import makeItRain from './common/main';
     noscript.style.visibility='hidden';
     makeItRain();
   } //end if
-})(document.getElementById('noscript'));
+}

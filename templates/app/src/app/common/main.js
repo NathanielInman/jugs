@@ -1,4 +1,4 @@
-import Ion from '../lib/ion.dev';
+import Ion from '../vendor/ion';
 
 /**
  * This makeItRain demo constantly keeps 100 particles (dollars) on the screen
@@ -7,18 +7,22 @@ import Ion from '../lib/ion.dev';
  */
 export default function makeItRain() {
   // The following will show at the bottom left of the screen
-  var headerText = '<%= name %> Version <%= appVersion %> by <%= authorName %>';
+  var headerText = '<%= name %> Version <%= appVersion %> by <%= authorName %>',
+      shirtWidth = 0, shirtLeft = 0, // ease logical checks at runtime by
+      logoWidth = 0, logoHeight = 0, // preprocessing the sizes of the images
+      shirt = new Image(),
+      logo = new Image(),
+      dollar = new Image(),
+      makeItRain = new Ion(100);
 
-  // Load the resources required for display
-  var shirtWidth = 0, shirtLeft = 0; // ease logical checks at runtime by
-  var logoWidth = 0, logoHeight = 0; // preprocessing the sizes of the images
-  var shirt = new Image();
+  // Lady shirt in the background
   shirt.src = 'http://i.imgur.com/Nvfvy87.png';
   shirt.onload = function () {
     shirtWidth = v.h / shirt.height * shirt.width;
     shirtLeft = v.w / 2 - shirtWidth / 2;
   };
-  var logo = new Image();
+
+  // Gulp logo ontop of the lady shirt
   logo.src = 'http://i.imgur.com/dlwtnzo.png';
   logo.onload = function recheck() {
     if(!shirtWidth){ //need shirt to load first
@@ -28,11 +32,11 @@ export default function makeItRain() {
       logoHeight = shirtWidth / logo.width * logo.height / 6;
     } //end if
   };
-  var dollar = new Image();
+
+  // Dollar asset that floats from the top
   dollar.src = 'http://i.imgur.com/nLTCnEP.png';
 
   // Declare and initialize the scene
-  var makeItRain = new Ion(100);
   makeItRain.sx = function () {return r(1, v.w);}; //start x location
   makeItRain.sy = 15; //start y location
   makeItRain.dx = function () {return r(1, v.w);}; //destination x location (minus wind factor)

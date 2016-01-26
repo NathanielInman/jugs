@@ -1,0 +1,18 @@
+@require "partials/_loader.styl"
+@require "partials/_colors.styl"
+
+// Optimize kerning of all text rendered
+body, input, textarea, select, button
+  text-rendering optimizeLegibility
+  -webkit-font-smoothing: antialiased !important;
+
+svg
+  display inline-block
+  vertical-align middle
+
+// Make sure placeholder text is held over specific rules
+::placeholder
+  color colorBright !important
+
+a
+  text-decoration none

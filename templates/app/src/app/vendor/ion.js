@@ -16,6 +16,7 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  \*********************************************************************************/
+/*eslint-disable*/
 export default class Ion{
   constructor(q,s,x,y,dx,dy){
     this.particle=[];
@@ -97,7 +98,7 @@ export default class Ion{
     }else if(type==20){ //ease-in-out circular
       return ((t/=d/2)<1)?-c/2*(Math.sqrt(1-t*t)-1)+b:c/2*(Math.sqrt(1-(t-=2)*t)+1)+b;
     }else if(type==21){ //ease-in elastic loose
-      return ease(this,b,c,t,d,0.5,22);
+      return this.ease(this,b,c,t,d,0.5,22);
     }else if(type==22){ //ease-in elastic normal
       return (function(){
         var s=1.70158,p=0,a=c;
@@ -109,9 +110,9 @@ export default class Ion{
         return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
       })();
     }else if(type==23){ //ease-in elastic strong
-      return ease(b,c,t,d,0.1,22);
+      return this.ease(b,c,t,d,0.1,22);
     }else if(type==24){ //ease-out elastic loose
-      return ease(b,c,t,d,0.5,25);
+      return this.ease(b,c,t,d,0.5,25);
     }else if(type==25){ //ease-out elastic normal
       return (function(){
         var s=1.70158,p=0,a=c;
@@ -123,9 +124,9 @@ export default class Ion{
         return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
       })();
     }else if(type==26){ //ease-out elastic strong
-      return ease(b,c,t,d,0.1,25);
+      return this.ease(b,c,t,d,0.1,25);
     }else if(type==27){ //ease-in-out elastic loose
-      return ease(b,c,t,d,0.5,28);
+      return this.ease(b,c,t,d,0.5,28);
     }else if(type==28){ //ease-in-out elastic normal
       return (function(){
         var s=1.70158,p=0,a=c;
@@ -138,7 +139,7 @@ export default class Ion{
         return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )*0.5 + c + b;
       })();
     }else if(type==29){ //ease-in-out elastic strong(b,c,t,d,o,type)
-      return ease(b,c,t,d,0.1,28);
+      return this.ease(b,c,t,d,0.1,28);
     }else if(type==30){ //ease-in back
       return c*(t/=d)*t*((1.70158+1)*t - 1.70158) + b;
     }else if(type==31){ //ease-out back
@@ -147,7 +148,7 @@ export default class Ion{
       var s=1.70158;
       return ((t/=d/2) < 1)?c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b:c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
     }else if(type==33){ //ease-in bounce
-      return c-ease(0,c,d-t,d,0,34)+b;
+      return c-this.ease(0,c,d-t,d,0,34)+b;
     }else if(type==34){ //ease-out bounce
       if ((t/=d) < (1/2.75)) {
         return c*(7.5625*t*t) + b;
@@ -159,9 +160,9 @@ export default class Ion{
       return c*(7.5625*(t-=(2.625/2.75))*t + 0.984375) + b;}
     }else if(type==35){ //ease-in-out bounce
       if(t<d/2){
-        return ease(0,c,t*2,d,0,33)*0.5+b;
+        return this.ease(0,c,t*2,d,0,33)*0.5+b;
       }else{
-        return ease(0,c,t*2-d,d,0,34)*0.5+c*0.5+b;
+        return this.ease(0,c,t*2-d,d,0,34)*0.5+c*0.5+b;
       } //end if
     }//end if
   } //end Ion.ease()
@@ -355,3 +356,4 @@ export default class Ion{
     } //end for
   } //end Ion.getFrame()
 } //end class Ion
+/*eslint-enable*/
