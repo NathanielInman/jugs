@@ -9,7 +9,6 @@ import postcss                 from 'poststylus';
 import autoprefixer            from 'autoprefixer';
 import nano                    from 'gulp-cssnano';
 import jade                    from 'gulp-jade';
-import uglify                  from 'gulp-uglify';
 import eslint                  from 'gulp-eslint';
 import browserSync             from 'browser-sync';
 import colors                  from 'colors';
