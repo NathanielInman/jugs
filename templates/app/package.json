@@ -2,7 +2,7 @@
   "name": "<%= name %>",
   "version": "<%= appVersion %>",
   "description": "<%= appDescription %>",
-  "main": "Gulpfile.babel.js",
+  "main": "gulpfile.babel.js",
   "author": {
     "name": "<%= authorName %>",
     "email": "<%= authorEmail %>"
