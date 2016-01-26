@@ -8,9 +8,8 @@ Slush generator (J)ade (ug)lify (s)tylus makes development fun again!
 - **Babel** : *ES2015+ to ES5 compiler formerly called 6to5*
 - **Eslint** : *Lint your javascript in its ES2015 format*
 - **Jade** : *Templating system made easy*
+- **Autoprefixer** : *With PostCSS means no more vendor prefixs, it's all auto-magical!*
 - **Stylus** : *Powerful CSS Preprocessor with a beautiful syntax*
-  - **Nib** : **[optional]** *Choosing this plugin on init gives you plenty of extensions*
-  - **Kouto Swiss** : **[optional]** *Alternative plugin that gives tons of additional features*
 - **Uglify** : *Both CSS and JS to make your client payloads small and quick to load*
 - **Webpack** : *Module bundler, allowing ES2015 modules now*
 
@@ -21,6 +20,7 @@ Slush generator (J)ade (ug)lify (s)tylus makes development fun again!
 * [File Structure](#file-structure)
 * [Notes](#notes)
 * [Thanks](#thanks)
+* [License](#license)
 
 ## Changes
 
@@ -28,6 +28,7 @@ Slush generator (J)ade (ug)lify (s)tylus makes development fun again!
 01-27-2016:
   Webpack now uses commons bundler for vendor files
   ESLint now ignores vendor files
+  gulp bump added `gulp patch` `gulp feature` `gulp release` now supported
 11-25-2015:
   Using ESLint instead of JSHint (included settings file as .eslintrc)
   Using Webpack to handle ES2015 modules
@@ -111,7 +112,6 @@ Ion is an extremely lightweight particle engine made for canvas 2d context. The
 library is well-documented.
 
 ## Thanks
-
 This boilerplate of mine is just a combination of great tools, all credit goes to
 those who actually put in all the hard work to create them.
 
@@ -130,22 +130,26 @@ those who actually put in all the hard work to create them.
   design. I love my curly brace languages, but personally think that it gets in-between
   me and focusing on what's important when dealing with UX, wireframing or general
   design.
-- Lately I've taken the plunge into [Kouto Swiss][5] from [Nib][6], though the latter
-  clear influenced the former. Without sass, it was a lonely road not being able to use
-  bourban or compass, or hat with less. [Kouto Swiss][5] has added many features I haven't
-  seen in other plugins before, it's a welcome addition to my toolkit.
+- No more worrying about vendor prefixes! [Autoprefixer][6] has been an instrumental
+  improvement to my workflow when it comes to styling. None of that would be possible
+  without [PostCSS][5] and all of the benefits it's brought to frontend development.
 - If you're still coding without a linter like [ESLint][7], I'm not sure whether to
   give you a high-five for all the hard work or question your dedication for only
   stupidity.
 - Dropped Traceur for [Babel][8] (formerly 6to5) because it has more readable compiled
-  code. You can gather more specifics on comparisons of the two at their website.
+  code as well as a much more versatile transpilation story when it comes to upcoming
+  features to javascript. You can gather more specifics on comparisons of the two at
+  their website.
+
+# License
+ [MIT](/LICENSE)
 
 [1]:https://github.com/gulpjs/gulp
 [2]:https://github.com/slushjs/slush
 [3]:https://github.com/jadejs/jade
 [4]:https://github.com/learnboost/stylus
-[5]:https://github.com/krkn/kouto-swiss
-[6]:https://github.com/tj/nib
+[5]:https://github.com/postcss/postcss
+[6]:https://github.com/postcss/autoprefixer
 [7]:http://eslint.org
 [8]:https://github.com/babel/babel
 [9]:https://webpack.github.io
