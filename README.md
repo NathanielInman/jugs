@@ -25,6 +25,12 @@ Slush generator (J)ade (ug)lify (s)tylus makes development fun again!
 ## Changes
 
 ```
+12-06-2016
+  Webpack now compiles everything, gulp has been removed
+  `npm start` will now run everything and compile `dist` folder
+  `gulp patch` is possible with `npm` for info: `man npm-version`
+  `npm version patch -m "message goes here"`
+  Significant performance and accuracy of files improved
 01-27-2016:
   Webpack now uses commons bundler for vendor files
   ESLint now ignores vendor files
@@ -50,7 +56,7 @@ slush jugs
 to run...
 
 ```
-gulp
+npm start
 ```
 
 And just like that, you're on the way to making your app!
@@ -63,27 +69,24 @@ Javascript files are compiled together based upon their dependencies declared us
 project
 ├─dist
 │ ├<<────(assets are copied here on compile)
-│ ├─scripts
-│ │ └─ file.js (+depends.js)
-│ ├─styles
-│ │ └─ main.css
+│ ├─ file.js (includes all styles)
 │ └─ index.html
 ├─ src
 │ ├─assets
-│ │ └─ (imgs/html/pdf/other go here)
-│ ├─scripts
-│ │ ├─ depends.js
-│ │ └─ file.js (imports depends.js)
-│ ├─styles
-│ │ ├─ boilerplate.styl
-│ │ └─ main.styl
-│ └─views
+│ │ └─ (imgs/pdf/other go here)
+│ └─app
+│   ├─ app.js
+│   ├─ app.styl
+│   ├─ index.jade
 │   ├─partials
-│   │ ├─ _footer.jade
-│   │ ├─ _head.jade
-│   │ └─ _scripts.jade
-│   └─ index.jade
-├─ gulpfile.js
+│   │ ├─ \_colors.styl
+│   │ ├─ \_head.jade
+│   │ ├─ \_scripts.jade
+│   │ └─ \_footer.jade
+│   └─vendor
+│     ├─ ion.js
+│     └─ easel.js
+├─ config.babel.js
 ├─ package.json
 └─ readme.md
 ```
@@ -95,48 +98,35 @@ can be easily transitioned into other avenues. Two very basic libraries are incl
 that I developed : Easel and Ion.
 
 Easel sets up a canvas that will fit the perspective of the window
-and automatically adjust in size when the window is resized. It's an extremely small
-library and sets up a few variables that I find very useful:
+and automatically adjust in size when the window is resized.
 
-* **ctx** : *context of the canvas*
-* **v.w** : *viewport width in pixels*
-* **v.h** : *viewport height in pixels*
-* **r(number)** : *returns a decimal between 0 and number*
-* **r(number,0,1)** : *returns an integer between 0 and number*
-* **r(num1,num2)** : *returns a decimal between num1 and num2*
-* **r(num1,num2,1)** : *returns an integer between num1 and num2*
-* **Easel.background** : *color to flood the canvas with when it redraws*
-* **Easel.redraw()** : *override this function to handle redraws on resize, or call it by hand*
-
-Ion is an extremely lightweight particle engine made for canvas 2d context. The
-library is well-documented.
+Ion is a particle engine made for canvas 2d context. The library is well-documented.
 
 ## Thanks
 This boilerplate of mine is just a combination of great tools, all credit goes to
 those who actually put in all the hard work to create them.
 
-- The [Gulp][1] developers. Streaming build system - how nice and easy it is to setup.
-- There have been many [Slush][2] generators that have been instrumental in getting
+- There have been many [Slush][1] generators that have been instrumental in getting
   all those pesky apps developed on time. It's great to finally have an alternative
   to Yeoman.
-- [Webpack][9] has been an instrumental boost in productivity and clean code, allowing the
+- [Webpack][8] has been an instrumental boost in productivity and clean code, allowing the
   the use of the ES2015 module system.
-- Though [Jade][3] has been seen predominately as a server-side helper for templating,
+- Though [Jade][2] has been seen predominately as a server-side helper for templating,
   I find it incredibly helpful on front-end projects where I'm using a build system
   anyways, as the syntax is far easier to read and reduces duplication of segments with
   partials.
-- From css to less to sass to [Stylus][4], it's been a long road with css pre-processors,
+- From css to less to sass to [Stylus][3], it's been a long road with css pre-processors,
   but I finally found one that lets me drop all the redundant syntax and focus more on the
   design. I love my curly brace languages, but personally think that it gets in-between
   me and focusing on what's important when dealing with UX, wireframing or general
   design.
-- No more worrying about vendor prefixes! [Autoprefixer][6] has been an instrumental
+- No more worrying about vendor prefixes! [Autoprefixer][5] has been an instrumental
   improvement to my workflow when it comes to styling. None of that would be possible
-  without [PostCSS][5] and all of the benefits it's brought to frontend development.
-- If you're still coding without a linter like [ESLint][7], I'm not sure whether to
+  without [PostCSS][4] and all of the benefits it's brought to frontend development.
+- If you're still coding without a linter like [ESLint][6], I'm not sure whether to
   give you a high-five for all the hard work or question your dedication for only
   stupidity.
-- Dropped Traceur for [Babel][8] (formerly 6to5) because it has more readable compiled
+- Dropped Traceur for [Babel][7] (formerly 6to5) because it has more readable compiled
   code as well as a much more versatile transpilation story when it comes to upcoming
   features to javascript. You can gather more specifics on comparisons of the two at
   their website.
@@ -144,12 +134,11 @@ those who actually put in all the hard work to create them.
 # License
  [MIT](/LICENSE)
 
-[1]:https://github.com/gulpjs/gulp
-[2]:https://github.com/slushjs/slush
-[3]:https://github.com/jadejs/jade
-[4]:https://github.com/learnboost/stylus
-[5]:https://github.com/postcss/postcss
-[6]:https://github.com/postcss/autoprefixer
-[7]:http://eslint.org
-[8]:https://github.com/babel/babel
-[9]:https://webpack.github.io
+[1]:https://github.com/slushjs/slush
+[2]:https://github.com/jadejs/jade
+[3]:https://github.com/learnboost/stylus
+[4]:https://github.com/postcss/postcss
+[5]:https://github.com/postcss/autoprefixer
+[6]:http://eslint.org
+[7]:https://github.com/babel/babel
+[8]:https://webpack.github.io

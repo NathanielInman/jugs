@@ -1,6 +1,6 @@
-class Easel{
+/*eslint-disable */
+export class Easel{
   constructor(){
-    /*eslint-disable */
     if(!!window.CanvasRenderingContext2D){
       this.activated = true; }else{
       this.activated = false;
@@ -34,7 +34,6 @@ class Easel{
                    canvas{position:fixed;left:0;top:0;right:0;bottom:0;}`;
     document.getElementsByTagName('head')[0].appendChild(d);
     this.resizeCanvas();
-    /*eslint-enable */
   }
   resizeCanvas(){
     C.width = v.w;
@@ -68,6 +67,8 @@ class Easel{
     ctx.fillRect(0, 0, v.w, v.h);
   }
 }
-const easel = new Easel();
+export const easel = new Easel();
 
-export {easel};
+export default {easel,Easel};
+/*eslint-enable */
+
