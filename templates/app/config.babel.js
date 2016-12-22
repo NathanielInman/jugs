@@ -11,10 +11,7 @@ export default {
     app: [
       './src/app/app.js'
     ],
-    vendor: [
-      './src/app/vendor/easel.js',
-      './src/app/vendor/ion.js'
-    ]
+    vendor: ['ion-cloud']
   },
 //  devtool: 'source-map',
   plugins:[
