@@ -61,5 +61,3 @@ export function makeItRain() {
   makeItRain.populate(r(200,500)); //pass a custom wait function between particles
   makeItRain.process(); //begin processing the scene
 } //end app()
-
-

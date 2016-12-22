@@ -173,7 +173,7 @@ gulp.task('default', function (done) {
     }],
     function (answers) {
       var dirMap;
-      
+
       if (!answers.moveon) return done();
       answers.file = { relative: '<%= file.relative %>' };
       answers = handleDefaults(answers);
@@ -211,7 +211,7 @@ gulp.task('default', function (done) {
         .on('finish', function () {
           var a = answers,
               dirs = [];
-              
+
           if (a.sourceCustomization) {
             a.sourceBase !== 'src/' && dirs.push('./src');
             a.sourceScripts !== 'scripts/' && dirs.push('./' + a.sourceBase + 'scripts');
