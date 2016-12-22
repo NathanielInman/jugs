@@ -40,14 +40,14 @@
     "build"
   ],
   "dependencies": {
-    "del": "^2.2.2",
-    "gulp": "^3.9.1",
+    "del": "^2.1.0",
+    "gulp": "^3.9.0",
     "gulp-conflict": "^0.4.0",
     "gulp-install": "^0.6.0",
     "gulp-rename": "^1.2.2",
-    "gulp-template": "^4.0.0",
+    "gulp-template": "^3.1.0",
     "iniparser": "^1.0.5",
-    "inquirer": "^2.0.0"
+    "inquirer": "^0.11.0"
   },
   "bugs": {
     "url": "https://github.com/NathanielInman/slush-jugs/issues"
