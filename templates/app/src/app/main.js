@@ -1,4 +1,5 @@
-import {Ion,easel} from 'ion-cloud';
+import {Ion} from 'ion-cloud';
+import {easel} from './app';
 
 // This makeItRain demo constantly keeps 100 particles (dollars) on the screen
 export function makeItRain() {
