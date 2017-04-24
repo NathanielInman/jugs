@@ -13,16 +13,14 @@ export default {
     vendor: ['ion-cloud']
   },
   output:{
-    path: './dist',
+    path: __dirname+'/dist',
     publicPath: '/',
-    sourceMapFilename: '[file].map',
-    filename:'[name].development.js',
-    library: 'app',
-    libraryTarget: 'this'
+    sourceMapFilename: '[hash].map',
+    filename:'[hash].js'
   },
   devtool: 'source-map',
   plugins:[
-    new webpack.optimize.CommonsChunkPlugin('vendor.js'),
+    new webpack.optimize.CommonsChunkPlugin('vendor'),
     new webpack.optimize.UglifyJsPlugin({
       mangle: false,
       compress: {warnings: false},
