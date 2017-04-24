@@ -9,7 +9,10 @@ export function makeItRain() {
       shirt = new Image(),
       logo = new Image(),
       dollar = new Image(),
-      makeItRain = new Ion(100);
+      v = easel.viewport, //viewport holds width and height of canvas
+      ctx = easel.ctx, //link to canvas 2d drawing context
+      makeItRain = new Ion(ctx,v), //animation class
+      r = easel.randomInteger; //lowerbound, upperbound, isInteger?
 
   // Lady shirt in the background
   shirt.src = 'http://i.imgur.com/Nvfvy87.png';
@@ -37,6 +40,7 @@ export function makeItRain() {
   dollar.src = 'http://i.imgur.com/nLTCnEP.png';
 
   // Declare and initialize the scene
+  makeItRain.quantity = 100;
   makeItRain.startX = ()=> r(1, v.w); //start x location
   makeItRain.startY = 15; //start y location
   makeItRain.endX = ()=> r(1, v.w); //destination x location (minus wind factor)
