@@ -48,7 +48,7 @@
     "webpack": "^2.4.1"
   },
   "dependencies": {
-    "ion-cloud": "^1.1.0"
+    "ion-cloud": "^1.1.1"
   },
   "readmeFilename": "README.md",
   "homepage": "https://github.com/<%= userName %>/<%= name %>"
