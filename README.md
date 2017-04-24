@@ -47,10 +47,16 @@ Slush generator (J)ade (ug)lify (s)tylus makes development fun again!
 Simply install [slush][2], as well as this generator globally:
 
 ```
-npm install -g slush slush-jugs
+npm i -g slush slush-jugs
 mkdir appName
 cd appName
 slush jugs
+```
+
+don't forget to install npm modules
+
+```
+npm i
 ```
 
 to run...
