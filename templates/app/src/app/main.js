@@ -4,37 +4,40 @@ import {easel} from './app';
 // This makeItRain demo constantly keeps 100 particles (dollars) on the screen
 export function makeItRain() {
   var headerText = '<%= name %> Version <%= appVersion %> by <%= authorName %>',
-      shirtWidth = 0, shirtLeft = 0, // ease logical checks at runtime by
-      logoWidth = 0, logoHeight = 0, // preprocessing the sizes of the images
+      shirtWidth = 0, shirtLeft = 0, shirtHeight = 0, shirtTop = 0,
+      logoWidth = 0, logoHeight = 0,
       shirt = new Image(),
       logo = new Image(),
       dollar = new Image(),
       v = easel.viewport, //viewport holds width and height of canvas
       ctx = easel.ctx, //link to canvas 2d drawing context
       makeItRain = new Ion(ctx,v), //animation class
-      r = easel.randomInteger; //lowerbound, upperbound, isInteger?
+      r = easel.randomInteger, //lowerbound, upperbound, isInteger?
+      gatherShirtSize = ()=>{
+        shirtWidth = v.h / shirt.height * shirt.width;
+        shirtLeft = v.w / 2 - shirtWidth / 2;
+        shirtHeight = v.h;
+        shirtTop = 0;
+        if(shirtWidth>v.w){
+          shirtLeft = 0;
+          shirtWidth = v.w;
+          shirtHeight = v.w / shirt.width * shirt.height;
+          shirtTop = v.h / 2 - shirtHeight / 2;
+        } //end if
+        logoWidth = shirtWidth / 6;
+        logoHeight = shirtHeight / 4;
+      };
 
   // Lady shirt in the background
   shirt.src = 'http://i.imgur.com/Nvfvy87.png';
-  shirt.onload = ()=>{
-    shirtWidth = v.h / shirt.height * shirt.width;
-    shirtLeft = v.w / 2 - shirtWidth / 2;
-  };
+  shirt.onload = ()=> gatherShirtSize();
   easel.config = ()=>{
-    shirtWidth = v.h / shirt.height * shirt.width;
-    shirtLeft = v.w / 2 - shirtWidth / 2;
+    v = easel.viewport; //viewport could have changed on resize
+    gatherShirtSize();
   };
 
   // Gulp logo ontop of the lady shirt
   logo.src = 'http://i.imgur.com/dlwtnzo.png';
-  logo.onload = function recheck() {
-    if(!shirtWidth){ //need shirt to load first
-      setTimeout(()=> recheck(),1); //keep checking until shirt loads
-    }else{
-      logoWidth = shirtWidth / 6;
-      logoHeight = shirtWidth / logo.width * logo.height / 6;
-    } //end if
-  };
 
   // Dollar asset that floats from the top
   dollar.src = 'http://i.imgur.com/nLTCnEP.png';
@@ -55,15 +58,17 @@ export function makeItRain() {
   makeItRain.tweenType = 'linear';
   makeItRain.onParticleEnd = makeItRain.reevaluate;
   makeItRain.clearFrame = ()=>{ //overriding the clear frame function
+    let x = v.w/2-logoWidth/2,
+        y = v.h/2-logoHeight/2;
+
     ctx.fillStyle = '#000';
     ctx.fillRect(0, 0, v.w, v.h);
     ctx.font = '18px Courier New';
-    ctx.drawImage(shirt, shirtLeft, 0, shirtWidth, v.h);
-    ctx.drawImage(logo, v.w / 2 - logoWidth / 2, v.h / 2 - logoHeight / 2, logoWidth, logoHeight);
+    ctx.drawImage(shirt, shirtLeft, shirtTop, shirtWidth, shirtHeight);
+    ctx.drawImage(logo, x, y, logoWidth, logoHeight);
     ctx.fillStyle = 'rgb(255,255,0)';
     ctx.fillText(headerText, 5, v.h - 5);
   };
   makeItRain.populate(r(200,500)); //pass a custom wait function between particles
   makeItRain.process(); //begin processing the scene
 } //end app()
-
