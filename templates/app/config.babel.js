@@ -16,7 +16,7 @@ export default {
     path: __dirname+'/dist',
     publicPath: '/',
     sourceMapFilename: '[hash].map',
-    filename:'[hash].js'
+    filename:'[chunkhash].js'
   },
   devtool: 'source-map',
   plugins:[
