@@ -2,12 +2,12 @@
 
 [![Build Status](https://travis-ci.org/NathanielInman/slush-jugs.svg?branch=master)](https://travis-ci.org/NathanielInman/slush-jugs) [![dependency Status](https://david-dm.org/NathanielInman/slush-jugs/status.svg?style=flat)](https://david-dm.org/NathanielInman/slush-jugs) [![devDependency Status](https://david-dm.org/NathanielInman/slush-jugs/dev-status.svg?style=flat)](https://david-dm.org/NathanielInman/slush-jugs#info=devDependencies)
 
-Slush generator (J)ade (ug)lify (s)tylus makes development fun again!
+Slush generator (J)avascript p(ug) (s)tylus makes development fun again!
 
 - **Browser Sync** : *Live reloading system*
 - **Babel** : *ES2015+ to ES5 compiler formerly called 6to5*
 - **Eslint** : *Lint your javascript in its ES2015 format*
-- **Jade** : *Templating system made easy*
+- **Pug** : *Templating system made easy, formerly jade*
 - **Autoprefixer** : *With PostCSS means no more vendor prefixs, it's all auto-magical!*
 - **Stylus** : *Powerful CSS Preprocessor with a beautiful syntax*
 - **Uglify** : *Both CSS and JS to make your client payloads small and quick to load*
@@ -82,16 +82,8 @@ project
 │ │ └─ (imgs/pdf/other go here)
 │ └─app
 │   ├─ app.js
-│   ├─ app.styl
-│   ├─ index.jade
-│   ├─partials
-│   │ ├─ \_colors.styl
-│   │ ├─ \_head.jade
-│   │ ├─ \_scripts.jade
-│   │ └─ \_footer.jade
-│   └─vendor
-│     ├─ ion.js
-│     └─ easel.js
+│   ├─ makeItRain.js
+│   └─ app.styl
 ├─ config.babel.js
 ├─ package.json
 └─ readme.md
@@ -117,10 +109,10 @@ those who actually put in all the hard work to create them.
   to Yeoman.
 - [Webpack][8] has been an instrumental boost in productivity and clean code, allowing the
   the use of the ES2015 module system.
-- Though [Jade][2] has been seen predominately as a server-side helper for templating,
-  I find it incredibly helpful on front-end projects where I'm using a build system
-  anyways, as the syntax is far easier to read and reduces duplication of segments with
-  partials.
+- Though [Pug][2] (formerly Jade,) has been seen predominately as a server-side helper
+  for templating, I find it incredibly helpful on front-end projects where I'm using a
+  build system anyways, as the syntax is far easier to read and reduces duplication of
+  segments with partials.
 - From css to less to sass to [Stylus][3], it's been a long road with css pre-processors,
   but I finally found one that lets me drop all the redundant syntax and focus more on the
   design. I love my curly brace languages, but personally think that it gets in-between
@@ -141,7 +133,7 @@ those who actually put in all the hard work to create them.
  [MIT](/LICENSE)
 
 [1]:https://github.com/slushjs/slush
-[2]:https://github.com/jadejs/jade
+[2]:https://github.com/pugjs/pug
 [3]:https://github.com/learnboost/stylus
 [4]:https://github.com/postcss/postcss
 [5]:https://github.com/postcss/autoprefixer
