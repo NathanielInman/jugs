@@ -22,18 +22,6 @@ var defaults = (function () {
     appName    : workingDirName,
     userName   : user.name || osUserName,
     authorEmail: user.email || '',
-    source: {
-      base           : 'src/',
-      styles         : 'styles/',
-      scripts        : 'scripts/',
-      templates      : 'views/',
-      partials       : 'partials/'
-    },
-    output: {
-      base   : 'dist/',
-      styles : 'css/',
-      scripts: 'js/'
-    }
   };
 })();
 
@@ -66,19 +54,6 @@ var outputCustomizationWanted = function (answers) {
 
 // If they don't specify specifics, we need to have defaults ready
 var handleDefaults = function (answers) {
-  if (!answers.sourceCustomization) {
-    answers.sourceBase = defaults.source.base;
-    answers.sourceStyles = defaults.source.styles;
-    answers.sourceScripts = defaults.source.scripts;
-    answers.sourceEsnextExt = defaults.source.esnextExtension;
-    answers.sourcePartials = defaults.source.partials;
-    answers.sourceTemplates = defaults.source.templates;
-  }
-  if (!answers.outputCustomization) {
-    answers.outputBase = defaults.output.base;
-    answers.outputStyles = defaults.output.styles;
-    answers.outputScripts = defaults.output.scripts;
-  }
   return answers;
 };
 
@@ -110,81 +85,14 @@ gulp.task('default', function (done) {
       default: defaults.userName
     }, {
       type   : 'confirm',
-      name   : 'sourceCustomization',
-      default: false,
-      message: 'Would you like to customize source files folders?'
-    }, {
-      name   : 'sourceBase',
-      message: 'The base folder of your source files:',
-      when   : sourceCustomizationWanted,
-      filter : filterPaths,
-      default: defaults.source.base
-    }, {
-      name   : 'sourceStyles',
-      message: 'The folder for your stylesheets:',
-      when   : sourceCustomizationWanted,
-      filter : filterPaths,
-      default: defaults.source.styles
-    }, {
-      name   : 'sourceScripts',
-      message: 'The folder for your scripts:',
-      when   : sourceCustomizationWanted,
-      filter : filterPaths,
-      default: defaults.source.scripts
-    }, {
-      name   : 'sourceTemplates',
-      message: 'The folder for your templates:',
-      when   : sourceCustomizationWanted,
-      filter : filterPaths,
-      default: defaults.source.templates
-    }, {
-      name   : 'sourcePartials',
-      message: 'The folder for your partials (client side templates):',
-      when   : sourceCustomizationWanted,
-      filter : filterPaths,
-      default: defaults.source.partials
-    }, {
-      type   : 'confirm',
-      name   : 'outputCustomization',
-      default: false,
-      message: 'Would you like to customize output folders?'
-    }, {
-      name   : 'outputBase',
-      message: 'The base folder of your output files:',
-      when   : outputCustomizationWanted,
-      filter : filterPaths,
-      default: defaults.output.base
-    }, {
-      name   : 'outputStyles',
-      message: 'The folder for your stylesheets:',
-      when   : outputCustomizationWanted,
-      filter : filterPaths,
-      default: defaults.output.styles
-    }, {
-      name   : 'outputScripts',
-      message: 'The folder for your scripts:',
-      when   : outputCustomizationWanted,
-      filter : filterPaths,
-      default: defaults.output.scripts
-    }, {
-      type   : 'confirm',
       name   : 'moveon',
       message: 'Continue?'
     }],
     function (answers) {
-      var dirMap;
-
       if (!answers.moveon) return done();
       answers.file = { relative: '<%= file.relative %>' };
       answers = handleDefaults(answers);
       answers.year = (new Date()).getFullYear();
-      dirMap = {
-        'src'     : answers.sourceBase,
-        'styles'  : answers.sourceStyles,
-        'scripts' : answers.sourceScripts,
-        'partials': answers.sourcePartials,
-        'views'   : answers.sourceTemplates
-      };
       gulp.src([
         __dirname + '/templates/app/**'
       ])
@@ -197,31 +105,9 @@ gulp.task('default', function (done) {
           } else if (file.basename[0] === '_') {
             file.basename = '.' + file.basename.slice(1);
           } //end if
-          if (answers.sourceCustomization) {
-            file.dirname = file.dirname.replace(
-              /^(src|views)\b|\/(scripts|styles|partials)\b/g,
-              function (match, $1, $2) {
-                return dirMap[$1 || $2] || $1 || $2;
-              });
-          } //end if
         }))
         .pipe(conflict('./'))
         .pipe(gulp.dest('./'))
-        .pipe(install())
-        .on('finish', function () {
-          var a = answers,
-              dirs = [];
-
-          if (a.sourceCustomization) {
-            a.sourceBase !== 'src/' && dirs.push('./src');
-            a.sourceScripts !== 'scripts/' && dirs.push('./' + a.sourceBase + 'scripts');
-            a.sourceStyles !== 'styles/' && dirs.push('./' + a.sourceBase + 'styles');
-            a.sourceTemplates !== 'views/' && dirs.push('./views');
-            a.sourcePartials !== 'partials/' && dirs.push('./' + a.sourceTemplates + 'partials');
-            del(dirs, done);
-          } else {
-            del(dirs, done);
-          } //end if
-        });
+        .pipe(install());
     });
 });

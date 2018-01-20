@@ -53,13 +53,9 @@ cd appName
 slush jugs
 ```
 
-don't forget to install npm modules
-
-```
-npm i
-```
-
-to run...
+Follow the questions and it will finalize by installing all dependencies for you.
+In order to start the app and have it automatically check for code changes and
+autoupdate merely run the command:
 
 ```
 npm start
