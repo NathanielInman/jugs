@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/NathanielInman/slush-jugs.svg?branch=master)](https://travis-ci.org/NathanielInman/slush-jugs) [![dependency Status](https://david-dm.org/NathanielInman/slush-jugs/status.svg?style=flat)](https://david-dm.org/NathanielInman/slush-jugs) [![devDependency Status](https://david-dm.org/NathanielInman/slush-jugs/dev-status.svg?style=flat)](https://david-dm.org/NathanielInman/slush-jugs#info=devDependencies)
 
+![Example Program](https://i.imgur.com/E0r4Otw.gif)
+
 Slush generator (J)avascript p(ug) (s)tylus makes development fun again!
 
 - **Browser Sync** : *Live reloading system*
