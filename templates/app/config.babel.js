@@ -4,9 +4,13 @@ import poststylus    from 'poststylus';
 import BrowserSync   from 'browser-sync-webpack-plugin';
 import indexTemplate from 'html-webpack-template-pug';
 import HtmlPlugin    from 'html-webpack-plugin';
+import CleanWebpack  from 'clean-webpack-plugin';
 import {index}       from './index.manifest';
 
+const mode = process.env.NODE_ENV==='production'?'production':'development';
+
 export default {
+  mode,
   watch: true,
   entry:{
     app: ['./src/app/app.js'],
@@ -20,14 +24,8 @@ export default {
   },
   devtool: 'source-map',
   plugins:[
-    new webpack.optimize.CommonsChunkPlugin('vendor'),
-    new webpack.optimize.UglifyJsPlugin({
-      mangle: false,
-      compress: {warnings: false},
-      output: {comments: false},
-      sourceMap: true
-    }),
-    new webpack.DefinePlugin({'process.env': {NODE_ENV: '"production"'}}),
+    new CleanWebpack(['dist']),
+    new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify(mode)}),
     new webpack.LoaderOptionsPlugin({
       options: {stylus: {use: [poststylus(['autoprefixer'])]}}
     }),
@@ -36,11 +34,10 @@ export default {
       template: indexTemplate,
       mobile: true,
       injectExtras: index,
-      title: '<%= name %>'
+      title: 'doom'
     }),
     new BrowserSync({
       host: 'localhost',
-      port: 8000,
       server: { baseDir: ['./dist'] }
     })
   ],
@@ -53,43 +50,9 @@ export default {
       },
       {test: /\.styl$/, use: ['style-loader','css-loader','stylus-loader']},
       {test: /\.pug/, use: 'pug-loader'},
-      {test: /\.css$/, use: ['style-loader','css-loader']},
-      {
-        test: /\.svg$/,
-        use: [{
-          loader: 'url-loader',
-          options: {limit: '65000',mimetype: 'image/svg+xml'}
-        }]
-      },
-      {
-        test: /\.woff$/,
-        use: [{
-          loader: 'url-loader',
-          options: {limit: '65000',mimetype: 'application/font-woff'}
-        }]
-      },
-      {
-        test: /\.woff2$/,
-        use: [{
-          loader: 'url-loader',
-          options: {limit: '65000',mimetype: 'application/font-woff2'}
-        }]
-      },
-      {
-        test: /\.[ot]tf$/,
-        use: [{
-          loader: 'url-loader',
-          options: {limit: '65000',mimetype: 'application/octet-stream'}
-        }]
-      },
-      {
-        test: /\.eot$/,
-        use: [{
-          loader: 'url-loader',
-          options: {limit: '65000',mimetype: 'application/vnd.ms-fontobject'}
-        }]
-      }
+      {test: /\.css$/, use: ['style-loader','css-loader']}
     ] //end rules
   } //end module
 };
+
 

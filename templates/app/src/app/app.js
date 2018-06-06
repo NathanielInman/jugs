@@ -1,7 +1,7 @@
 import './app.styl';
 import {Easel} from 'ion-cloud';
 import {makeItRain} from './makeItRain';
-export let easel = new Easel();
+export const easel = new Easel();
 
 // Launch application if easel was able to create a canvas,
 // if it wasn't then we know canvas isn't supported
