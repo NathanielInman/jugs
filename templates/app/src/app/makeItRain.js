@@ -9,10 +9,8 @@ export function makeItRain() {
       shirt = new Image(),
       logo = new Image(),
       dollar = new Image(),
-      v = easel.viewport, //viewport holds width and height of canvas
       ctx = easel.ctx, //link to canvas 2d drawing context
       makeItRain = new Ion(easel), //animation class
-      r = easel.randomInteger, //lowerbound, upperbound, isInteger?
       gatherShirtSize = ()=>{
         shirtWidth = easel.viewport.h / shirt.height * shirt.width;
         shirtLeft = easel.viewport.w / 2 - shirtWidth / 2;
@@ -32,7 +30,6 @@ export function makeItRain() {
   shirt.src = 'http://i.imgur.com/Nvfvy87.png';
   shirt.onload = ()=> gatherShirtSize();
   easel.config = ()=>{
-    v = easel.viewport; //viewport could have changed on resize
     gatherShirtSize();
   };
 
