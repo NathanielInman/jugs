@@ -27,7 +27,11 @@ Slush generator (J)avascript p(ug) (s)tylus makes development fun again!
 ## Changes
 
 ```
-12-06-2016
+06-05-2018:
+  Updated all npm modules to latest versions including webpack
+  cleaning of folders is done with webpack instead of npm scripts now
+  Using latest `ion-cloud` which is more performant
+12-06-2016:
   Webpack now compiles everything, gulp has been removed
   `npm start` will now run everything and compile `dist` folder
   `gulp patch` is possible with `npm` for info: `man npm-version`
