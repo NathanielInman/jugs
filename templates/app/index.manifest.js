@@ -10,8 +10,7 @@ export const index = {
       {
         tag: 'link',
         rel: 'shortcut icon',
-        href: 'images/favicon.png',
-        type: 'image/x-icon'
+        href: '/favicon.ico'
       },
       {
         tag: 'base',
