@@ -3,28 +3,29 @@ import {easel} from './app';
 
 // This makeItRain demo constantly keeps 100 particles (dollars) on the screen
 export function makeItRain() {
-  var headerText = '<%= name %> Version <%= appVersion %> by <%= authorName %>',
-      shirtWidth = 0, shirtLeft = 0, shirtHeight = 0, shirtTop = 0,
-      logoWidth = 0, logoHeight = 0,
-      shirt = new Image(),
-      logo = new Image(),
-      dollar = new Image(),
-      ctx = easel.ctx, //link to canvas 2d drawing context
-      makeItRain = new Ion(easel), //animation class
-      gatherShirtSize = ()=>{
-        shirtWidth = easel.viewport.h / shirt.height * shirt.width;
-        shirtLeft = easel.viewport.w / 2 - shirtWidth / 2;
-        shirtHeight = easel.viewport.h;
-        shirtTop = 0;
-        if(shirtWidth>easel.viewport.w){
-          shirtLeft = 0;
-          shirtWidth = easel.viewport.w;
-          shirtHeight = easel.viewport.w / shirt.width * shirt.height;
-          shirtTop = easel.viewport.h / 2 - shirtHeight / 2;
-        } //end if
-        logoWidth = shirtWidth / 6;
-        logoHeight = shirtHeight / 4;
-      };
+  let shirtWidth = 0, shirtLeft = 0, shirtHeight = 0, shirtTop = 0,
+      logoWidth = 0, logoHeight = 0;
+
+  const headerText = '<%= name %> Version <%= appVersion %> by <%= authorName %>',
+        ctx = easel.ctx, //link to canvas 2d drawing context
+        shirt = new Image(),
+        logo = new Image(),
+        dollar = new Image(),
+        makeItRain = new Ion(easel), //animation class
+        gatherShirtSize = ()=>{
+          shirtWidth = easel.viewport.h / shirt.height * shirt.width;
+          shirtLeft = easel.viewport.w / 2 - shirtWidth / 2;
+          shirtHeight = easel.viewport.h;
+          shirtTop = 0;
+          if(shirtWidth>easel.viewport.w){
+            shirtLeft = 0;
+            shirtWidth = easel.viewport.w;
+            shirtHeight = easel.viewport.w / shirt.width * shirt.height;
+            shirtTop = easel.viewport.h / 2 - shirtHeight / 2;
+          } //end if
+          logoWidth = shirtWidth / 6;
+          logoHeight = shirtHeight / 4;
+        };
 
   // Lady shirt in the background
   shirt.src = 'http://i.imgur.com/Nvfvy87.png';
@@ -56,8 +57,8 @@ export function makeItRain() {
   makeItRain.onParticleEnd = makeItRain.reevaluate;
   makeItRain.onEscape = makeItRain.reevaluate;
   makeItRain.clearFrame = ()=>{ //overriding the clear frame function
-    let x = easel.viewport.w/2-logoWidth/2,
-        y = easel.viewport.h/2-logoHeight/2;
+    const x = easel.viewport.w/2-logoWidth/2,
+          y = easel.viewport.h/2-logoHeight/2;
 
     ctx.fillStyle = '#000';
     ctx.fillRect(0, 0, easel.viewport.w, easel.viewport.h);

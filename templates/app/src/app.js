@@ -5,7 +5,7 @@ export const easel = new Easel();
 
 // Launch application if easel was able to create a canvas,
 // if it wasn't then we know canvas isn't supported
-let noscript = document.querySelector('app');
+const noscript = document.querySelector('noscript');
 
 if(!easel.activated){
   noscript.innerHTML = `
@@ -16,6 +16,6 @@ if(!easel.activated){
     <span style="color:red;"><br/>Canvas isn't supported in your browser.</span>
   </p>`;
 }else{
-  noscript.style.visibility='hidden';
+  noscript.style.display='none';
   makeItRain();
 } //end if

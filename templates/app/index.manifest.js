@@ -1,6 +1,6 @@
 import indexTemplate from 'html-webpack-template-pug';
 
-module.exports = {
+export const index = {
   inject: false,
   template: indexTemplate,
   mobile: true,

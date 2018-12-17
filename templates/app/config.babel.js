@@ -11,7 +11,7 @@ import nodePath from 'path';
 import {index} from './index.manifest';
 
 const mode = process.env.NODE_ENV==='production'?'production':'development',
-      path = nodePath.resolve(__dirname,'../dist');
+      path = nodePath.resolve(__dirname,'./dist');
 
 export default {
   mode,
