@@ -1,36 +1,11 @@
 {
   "parser": "babel-eslint",
-  "ecmaFeatures": {
-    "arrowFunctions": true,                    // enable arrow functions
-    "binaryLiterals": true,                    // enable binary literals
-    "blockBindings": true,                     // enable let and const (aka block bindings)
-    "classes": true,                           // enable classes
-    "defaultParams": true,                     // enable default function parameters
-    "destructuring": true,                     // enable destructuring
-    "forOf": true,                             // enable for-of loops
-    "generators": true,                        // enable generators
-    "modules": true,                           // enable modules and global strict mode
-    "objectLiteralComputedProperties": true,   // enable computed object literal property names
-    "objectLiteralDuplicateProperties": true,  // enable duplicate object literal properties in strict mode
-    "objectLiteralShorthandMethods": true,     // enable object literal shorthand methods
-    "objectLiteralShorthandProperties": true,  // enable object literal shorthand properties
-    "octalLiterals": true,                     // enable octal literals
-    "regexUFlag": true,                        // enable the regular expression u flag
-    "regexYFlag": true,                        // enable the regular expression y flag
-    "restParams": true,                        // enable the rest parameters
-    "spread": true,                            // enable the spread operator
-    "superInFunctions": true,                  // enable super references inside of functions
-    "templateStrings": true,                   // enable template strings
-    "unicodeCodePointEscapes": true,           // enable code point escapes
-    "globalReturn": false,                     // allow return statements in the global scope
-    "jsx": true                                // enable JSX
-  },
   "rules": {
     // Possible Errors
     "no-await-in-loop": 1,           // disallow await in loop
     "no-compare-neg-zero": 2,        // disallow comparing against -0
     "no-cond-assign": 2,             // disallow assignment in conditional expressions
-    "no-console": 1,                 // disallow use of console in the node environment
+    "no-console": [1, { allow: ["warn", "error"] }], // disallow use of console in the node environment
     "no-constant-condition": 2,      // disallow use of constant expressions in conditions
     "no-control-regex": 2,           // disallow control characters in regular expressions
     "no-debugger": 2,                // disallow use of debugger
@@ -148,7 +123,7 @@
     "no-undef-init": 0,              // disallow use of undefined when initializing variables
     "no-undefined": 0,               // disallow use of undefined variable
     "no-unused-vars": 1,             // disallow declaration of variables that are not used in the code (recommended)
-    "no-use-before-define": 1,       // disallow use of variables before they are defined
+    "no-use-before-define": 0,       // disallow use of variables before they are defined
 
     // Node.js and CommonJS
     "callback-return": 0,            // enforce return after a callback
@@ -165,7 +140,7 @@
     // Stylistic Issues
     "array-bracket-spacing": 1,      // enforce spacing inside array brackets (fixable)
     "block-spacing": [2,"always"],   // disallow or enforce spaces inside of single line blocks (fixable)
-    "brace-style": 1,                // enforce one true brace style
+    "brace-style": [1, "1tbs"],      // enforce one true brace style
     "camelcase": 1,                  // require camel case names
     "capitalized-comments": 0,       // enforce or disallow capitalization of the first letter of a comment
     "comma-dangle": 1,               // require or disallow trailing commas
@@ -189,9 +164,7 @@
       }
     }],
     "jsx-quotes": 0,                 // specify whether double or single quotes should be used in JSX attributes
-    "key-spacing": [1,{              // enforce spacing between keys and values in object literal properties
-      align: "value"
-    }],
+    "key-spacing": 0,                 // enforce spacing between keys and values in object literal properties
     "keyword-spacing": 0,            // enforce consistent spacing before and after keywords
     "line-comment-position": 0,      // enforce position of line comments
     "linebreak-style": 0,            // disallow mixed 'LF' and 'CRLF' as linebreaks
@@ -204,7 +177,7 @@
     "max-params": 0,                 // enforce a maximum number of parameters in function definitions
     "max-statements": 0,             // enforce a maximum number of statements allowed in function blocks
     "max-statements-per-line": 0,    // enforce a maximum number of statements allowed per line
-    "multiline-ternary": 0,          // enforce newlines between operands of ternary expressions
+    "multiline-ternary": [1, "never"],// enforce newlines between operands of ternary expressions
     "new-cap": 0,                    // require a capital letter for constructors
     "new-parens": 0,                 // disallow the omission of parentheses when invoking a constructor with no arguments
     "newline-after-var": 1,          // require or disallow an empty newline after variable declarations
@@ -258,25 +231,25 @@
 
     // ECMAScript 6
     "arrow-body-style": 0,           // require braces in arrow function body
-    "arrow-parens": 0,               // require parens in arrow function arguments
+    "arrow-parens": [1,"as-needed"], // require parens in arrow function arguments
     "arrow-spacing": 0,              // require space before/after arrow function's arrow (fixable)
     "constructor-super": 0,          // verify calls of super() in constructors
     "generator-star-spacing": 0,     // enforce spacing around the * in generator functions (fixable)
-    "no-class-assign": 0,            // disallow modifying variables of class declarations
+    "no-class-assign": 1,            // disallow modifying variables of class declarations
     "no-confusing-arrow": 0,         // disallow arrow functions where they could be confused with comparisons
     "no-const-assign": 1,            // disallow modifying variables that are declared using const
-    "no-dupe-class-members": 0,      // disallow duplicate name in class members
+    "no-dupe-class-members": 2,      // disallow duplicate name in class members
     "no-duplicate-imports": 1,       // disallow duplicate module imports
     "no-new-symbol": 0,              // disallow new operators with the Symbol object
     "no-restricted-imports": 0,      // disallow specified modules when loaded by import
     "no-this-before-super": 0,       // disallow use of this/super before calling super() in constructors.
     "no-useless-computed-key": 0,    // disallow unnecessary computed property keys in object literals
-    "no-useless-constructor": 0,     // disallow unnecessary constructors
-    "no-useless-rename": 0,          // disallow renaming import, export, and destructured assignments to the same name
-    "no-var": 0,                     // require let or const instead of var
-    "object-shorthand": 0,           // require method and property shorthand syntax for object literals
+    "no-useless-constructor": 1,     // disallow unnecessary constructors
+    "no-useless-rename": 1,          // disallow renaming import, export, and destructured assignments to the same name
+    "no-var": 1,                     // require let or const instead of var
+    "object-shorthand": 1,           // require method and property shorthand syntax for object literals
     "prefer-arrow-callback": 0,      // suggest using arrow functions as callbacks
-    "prefer-const": 0,               // suggest using const declaration for variables that are never modified after declared
+    "prefer-const": 1,               // suggest using const declaration for variables that are never modified after declared
     "prefer-destructuring": 0,       // require destructuring from arrays and/or objects
     "prefer-numeric-literals": 1,    // disallow parseInt() in favor of binary, octal, and hexadecimal literals
     "prefer-rest-params": 1,         // require rest parameters instead of arguments
@@ -290,4 +263,3 @@
     "yield-star-spacing": 0,         // require or disallow spacing around the * in yield* expressions
   }
 }
-
