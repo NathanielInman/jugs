@@ -27,6 +27,10 @@ Slush generator (J)avascript p(ug) (s)tylus makes development fun again!
 ## Changes
 
 ```
+12-17-2018:
+  Webpack now keeps css file separate instead of attached by javascript
+  Webpack will now copy files to dist folder and listen to assets automatically
+  Simplified file structure even more (/src/app -> /src)
 06-05-2018:
   Updated all npm modules to latest versions including webpack
   cleaning of folders is done with webpack instead of npm scripts now
@@ -82,10 +86,9 @@ project
 ├─ src
 │ ├─assets
 │ │ └─ (imgs/pdf/other go here)
-│ └─app
-│   ├─ app.js
-│   ├─ makeItRain.js
-│   └─ app.styl
+│ ├─ app.js
+│ ├─ makeItRain.js
+│ └─ app.styl
 ├─ config.babel.js
 ├─ package.json
 └─ readme.md
