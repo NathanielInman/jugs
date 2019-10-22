@@ -13,7 +13,7 @@ Slush generator (J)avascript p(ug) (s)tylus makes development fun again!
 - **Autoprefixer** : *With PostCSS means no more vendor prefixs, it's all auto-magical!*
 - **Stylus** : *Powerful CSS Preprocessor with a beautiful syntax*
 - **Uglify** : *Both CSS and JS to make your client payloads small and quick to load*
-- **Webpack** : *Module bundler, allowing ES2015 modules now*
+- **Parcel** : *Performant Module bundler
 
 ## Table of Contents
 
@@ -27,6 +27,8 @@ Slush generator (J)avascript p(ug) (s)tylus makes development fun again!
 ## Changes
 
 ```
+10-22-2019:
+  Moved from webpack to Parcel to improve speed and greatly decrease complexity
 12-17-2018:
   Webpack now keeps css file separate instead of attached by javascript
   Webpack will now copy files to dist folder and listen to assets automatically
@@ -112,8 +114,9 @@ those who actually put in all the hard work to create them.
 - There have been many [Slush][1] generators that have been instrumental in getting
   all those pesky apps developed on time. It's great to finally have an alternative
   to Yeoman.
-- [Webpack][8] has been an instrumental boost in productivity and clean code, allowing the
-  the use of the ES2015 module system.
+- [Parcel][8] has been an instrumental boost in productivity and clean code, allowing the
+  the use of the ES2015 module system. Moving from webpack to parcel greatly decreased
+  complexity and made starting projects **so** much easier!
 - Though [Pug][2] (formerly Jade,) has been seen predominately as a server-side helper
   for templating, I find it incredibly helpful on front-end projects where I'm using a
   build system anyways, as the syntax is far easier to read and reduces duplication of
@@ -144,4 +147,4 @@ those who actually put in all the hard work to create them.
 [5]:https://github.com/postcss/autoprefixer
 [6]:http://eslint.org
 [7]:https://github.com/babel/babel
-[8]:https://webpack.github.io
+[8]:https://parceljs.org/
