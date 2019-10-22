@@ -1,4 +1,4 @@
-import './app.styl';
+import './index.styl';
 import {Easel} from 'ion-cloud';
 import {makeItRain} from './makeItRain';
 export const easel = new Easel();
