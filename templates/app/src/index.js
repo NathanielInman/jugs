@@ -1,5 +1,5 @@
 import './index.styl';
-import {Easel} from 'ion-cloud';
+import {Easel} from '@ion-cloud/core';
 import {makeItRain} from './makeItRain';
 export const easel = new Easel();
 

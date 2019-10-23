@@ -22,7 +22,7 @@
     "parcel": "^1.12.4"
   },
   "dependencies": {
-    "ion-cloud": "^1.13.11"
+    "@ion-cloud/core": "^2.0.0"
   },
   "readmeFilename": "README.md",
   "homepage": "https://github.com/<%= userName %>/<%= name %>"
