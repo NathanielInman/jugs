@@ -1,7 +1,7 @@
 {
   "name": "slush-jugs",
   "version": "1.9.2",
-  "description": "Slush generator (J)ade (ug)lify (s)tylus makes development fun again!",
+  "description": "App generator (J)ade (ug)lify (s)tylus makes development fun again!",
   "license": "MIT",
   "author": {
     "name": "Nathaniel Inman",
@@ -10,14 +10,17 @@
   "engines": {
     "node": ">=0.10.0"
   },
+  "bin": {
+    "jugs": "./index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/NathanielInman/slush-jugs.git"
   },
-  "main": "slushfile.js",
+  "main": "index.js",
   "scripts": {},
   "keywords": [
-    "slushgenerator",
+    "appgenerator",
     "esnext",
     "future",
     "jade",
@@ -40,14 +43,14 @@
     "build"
   ],
   "dependencies": {
-    "del": "^1.1.0",
-    "gulp": "^3.8.11",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
     "gulp-conflict": "^0.4.0",
-    "gulp-install": "^0.4.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-template": "^3.0.0",
+    "gulp-install": "^1.1.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-template": "^5.0.0",
     "iniparser": "^1.0.5",
-    "inquirer": "^0.8.2"
+    "inquirer": "^7.3.3"
   },
   "bugs": {
     "url": "https://github.com/NathanielInman/slush-jugs/issues"

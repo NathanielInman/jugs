@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // load plugins
 var gulp      = require('gulp'),
     inquirer  = require('inquirer'),
@@ -58,56 +60,54 @@ var handleDefaults = function (answers) {
 };
 
 // The default gulp task is ran when slush is executed
-gulp.task('default', function (done) {
-  inquirer.prompt([{
-      name   : 'name',
-      message: 'Give your app a name',
-      default: defaults.appName
-    }, {
-      name   : 'appVersion',
-      message: 'What is the version of your project?',
-      default: '0.1.0'
-    }, {
-      name   : 'appDescription',
-      message: 'What is a description of your project?',
-      default: 'n/a'
-    }, {
-      name   : 'authorName',
-      message: 'What is the author name?',
-      default: defaults.userName
-    }, {
-      name   : 'authorEmail',
-      message: 'What is the author email?',
-      default: defaults.authorEmail
-    }, {
-      name   : 'userName',
-      message: 'What is the github username?',
-      default: defaults.userName
-    }, {
-      type   : 'confirm',
-      name   : 'moveon',
-      message: 'Continue?'
-    }],
-    function (answers) {
-      if (!answers.moveon) return done();
-      answers.file = { relative: '<%= file.relative %>' };
-      answers = handleDefaults(answers);
-      answers.year = (new Date()).getFullYear();
-      gulp.src([
-        __dirname + '/templates/app/**'
-      ])
-        .pipe(template(answers, {
-          interpolate: /<%=\s([\s\S]+?)%>/g
-        }))
-        .pipe(rename(function (file) {
-          if (file.basename[0] === '_' && file.basename[1] === '_'){
-            file.basename = file.basename.slice(1);
-          } else if (file.basename[0] === '_') {
-            file.basename = '.' + file.basename.slice(1);
-          } //end if
-        }))
-        .pipe(conflict('./'))
-        .pipe(gulp.dest('./'))
-        .pipe(install());
-    });
-});
+inquirer.prompt([{
+    name   : 'name',
+    message: 'Give your app a name',
+    default: defaults.appName
+  }, {
+    name   : 'appVersion',
+    message: 'What is the version of your project?',
+    default: '0.1.0'
+  }, {
+    name   : 'appDescription',
+    message: 'What is a description of your project?',
+    default: 'n/a'
+  }, {
+    name   : 'authorName',
+    message: 'What is the author name?',
+    default: defaults.userName
+  }, {
+    name   : 'authorEmail',
+    message: 'What is the author email?',
+    default: defaults.authorEmail
+  }, {
+    name   : 'userName',
+    message: 'What is the github username?',
+    default: defaults.userName
+  }, {
+    type   : 'confirm',
+    name   : 'moveon',
+    message: 'Continue?'
+  }])
+  .then(answers=>{
+    if (!answers.moveon) return done();
+    answers.file = { relative: '<%= file.relative %>' };
+    answers = handleDefaults(answers);
+    answers.year = (new Date()).getFullYear();
+    gulp.src([
+      __dirname + '/templates/app/**'
+    ])
+      .pipe(template(answers, {
+        interpolate: /<%=\s([\s\S]+?)%>/g
+      }))
+      .pipe(rename(function (file) {
+        if (file.basename[0] === '_' && file.basename[1] === '_'){
+          file.basename = file.basename.slice(1);
+        } else if (file.basename[0] === '_') {
+          file.basename = '.' + file.basename.slice(1);
+        } //end if
+      }))
+      .pipe(conflict('./'))
+      .pipe(gulp.dest('./'))
+      .pipe(install());
+  });

@@ -4,7 +4,7 @@
 
 ![Example Program](https://i.imgur.com/E0r4Otw.gif)
 
-Slush generator (J)avascript p(ug) (s)tylus makes development fun again!
+App generator (J)avascript p(ug) (s)tylus makes development fun again!
 
 - **Browser Sync** : *Live reloading system*
 - **Babel** : *ES2015+ to ES5 compiler formerly called 6to5*
@@ -27,6 +27,8 @@ Slush generator (J)avascript p(ug) (s)tylus makes development fun again!
 ## Changes
 
 ```
+02-09-2021:
+  Removed slush altogether. Doesn't require another npm module to install
 10-22-2019:
   Moved from webpack to Parcel to improve speed and greatly decrease complexity
 12-17-2018:
@@ -56,13 +58,13 @@ Slush generator (J)avascript p(ug) (s)tylus makes development fun again!
 
 ## Installation
 
-Simply install [slush][2], as well as this generator globally:
+Simply install this app generator globally:
 
 ```
-npm i -g slush slush-jugs
+npm i -g slush-jugs
 mkdir appName
 cd appName
-slush jugs
+jugs
 ```
 
 Follow the questions and it will finalize by installing all dependencies for you.
@@ -111,28 +113,25 @@ Ion is a particle engine made for canvas 2d context. The library is well-documen
 This boilerplate of mine is just a combination of great tools, all credit goes to
 those who actually put in all the hard work to create them.
 
-- There have been many [Slush][1] generators that have been instrumental in getting
-  all those pesky apps developed on time. It's great to finally have an alternative
-  to Yeoman.
-- [Parcel][8] has been an instrumental boost in productivity and clean code, allowing the
+- [Parcel][7] has been an instrumental boost in productivity and clean code, allowing the
   the use of the ES2015 module system. Moving from webpack to parcel greatly decreased
   complexity and made starting projects **so** much easier!
-- Though [Pug][2] (formerly Jade,) has been seen predominately as a server-side helper
+- Though [Pug][1] (formerly Jade,) has been seen predominately as a server-side helper
   for templating, I find it incredibly helpful on front-end projects where I'm using a
   build system anyways, as the syntax is far easier to read and reduces duplication of
   segments with partials.
-- From css to less to sass to [Stylus][3], it's been a long road with css pre-processors,
+- From css to less to sass to [Stylus][2], it's been a long road with css pre-processors,
   but I finally found one that lets me drop all the redundant syntax and focus more on the
   design. I love my curly brace languages, but personally think that it gets in-between
   me and focusing on what's important when dealing with UX, wireframing or general
   design.
-- No more worrying about vendor prefixes! [Autoprefixer][5] has been an instrumental
+- No more worrying about vendor prefixes! [Autoprefixer][4] has been an instrumental
   improvement to my workflow when it comes to styling. None of that would be possible
-  without [PostCSS][4] and all of the benefits it's brought to frontend development.
-- If you're still coding without a linter like [ESLint][6], I'm not sure whether to
+  without [PostCSS][3] and all of the benefits it's brought to frontend development.
+- If you're still coding without a linter like [ESLint][5], I'm not sure whether to
   give you a high-five for all the hard work or question your dedication for only
   stupidity.
-- Dropped Traceur for [Babel][7] (formerly 6to5) because it has more readable compiled
+- Dropped Traceur for [Babel][6] (formerly 6to5) because it has more readable compiled
   code as well as a much more versatile transpilation story when it comes to upcoming
   features to javascript. You can gather more specifics on comparisons of the two at
   their website.
@@ -140,11 +139,10 @@ those who actually put in all the hard work to create them.
 # License
  [MIT](/LICENSE)
 
-[1]:https://github.com/slushjs/slush
-[2]:https://github.com/pugjs/pug
-[3]:https://github.com/learnboost/stylus
-[4]:https://github.com/postcss/postcss
-[5]:https://github.com/postcss/autoprefixer
-[6]:http://eslint.org
-[7]:https://github.com/babel/babel
-[8]:https://parceljs.org/
+[1]:https://github.com/pugjs/pug
+[2]:https://github.com/learnboost/stylus
+[3]:https://github.com/postcss/postcss
+[4]:https://github.com/postcss/autoprefixer
+[5]:http://eslint.org
+[6]:https://github.com/babel/babel
+[7]:https://parceljs.org/
