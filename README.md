@@ -7,8 +7,8 @@
 App generator (J)avascript p(ug) (s)tylus makes development fun again!
 
 - **Browser Sync** : *Live reloading system*
-- **Babel** : *ES2015+ to ES5 compiler formerly called 6to5*
-- **Eslint** : *Lint your javascript in its ES2015 format*
+- **Babel** : *Transpile modern javascript, formerly called 6to5*
+- **Eslint** : *Lint your javascript in its modern format*
 - **Pug** : *Templating system made easy, formerly jade*
 - **Autoprefixer** : *With PostCSS means no more vendor prefixs, it's all auto-magical!*
 - **Stylus** : *Powerful CSS Preprocessor with a beautiful syntax*
