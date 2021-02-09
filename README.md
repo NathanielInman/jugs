@@ -1,6 +1,6 @@
 # jugs
 
-[![Build Status](https://github.com/nathanielinman/jugs/Node.js%20CI/badge.svg)](https://github.com/nathanielinman/jugs/actions) [![dependency Status](https://david-dm.org/NathanielInman/jugs/status.svg?style=flat)](https://david-dm.org/NathanielInman/jugs) [![devDependency Status](https://david-dm.org/NathanielInman/jugs/dev-status.svg?style=flat)](https://david-dm.org/NathanielInman/jugs#info=devDependencies)
+[![Build Status](https://github.com/nathanielinman/jugs/workflows/Node.js%20CI/badge.svg)](https://github.com/nathanielinman/jugs/actions) [![dependency Status](https://david-dm.org/NathanielInman/jugs/status.svg?style=flat)](https://david-dm.org/NathanielInman/jugs) [![devDependency Status](https://david-dm.org/NathanielInman/jugs/dev-status.svg?style=flat)](https://david-dm.org/NathanielInman/jugs#info=devDependencies)
 
 ![Example Program](https://i.imgur.com/E0r4Otw.gif)
 
