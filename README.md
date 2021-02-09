@@ -13,7 +13,7 @@ App generator (J)avascript p(ug) (s)tylus makes development fun again!
 - **Autoprefixer** : *With PostCSS means no more vendor prefixs, it's all auto-magical!*
 - **Stylus** : *Powerful CSS Preprocessor with a beautiful syntax*
 - **Uglify** : *Both CSS and JS to make your client payloads small and quick to load*
-- **Parcel** : *Performant Module bundler
+- **Parcel** : *Performant Module bundler*
 
 ## Table of Contents
 
