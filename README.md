@@ -1,6 +1,6 @@
 # jugs
 
-[![Build Status](https://github.com/nathanielinman/jugs/workflows/Node.js%20CI/badge.svg)](https://github.com/nathanielinman/jugs/actions) ![Dependabot Status](https://flat.badgen.net/dependabot/nathanielinman/dev.to?icon=dependabot)
+[![Build Status](https://github.com/nathanielinman/jugs/workflows/Node.js%20CI/badge.svg)](https://github.com/nathanielinman/jugs/actions)
 
 ![Example Program](https://i.imgur.com/E0r4Otw.gif)
 
