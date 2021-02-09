@@ -1,5 +1,5 @@
 {
-  "name": "slush-jugs",
+  "name": "jugs",
   "version": "2.0.0",
   "description": "App generator (J)ade (ug)lify (s)tylus makes development fun again!",
   "license": "MIT",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/NathanielInman/slush-jugs.git"
+    "url": "git://github.com/NathanielInman/jugs.git"
   },
   "main": "index.js",
   "scripts": {},
@@ -53,8 +53,8 @@
     "inquirer": "^7.3.3"
   },
   "bugs": {
-    "url": "https://github.com/NathanielInman/slush-jugs/issues"
+    "url": "https://github.com/NathanielInman/jugs/issues"
   },
   "readmeFilename": "README.md",
-  "homepage": "https://github.com/NathanielInman/slush-jugs"
+  "homepage": "https://github.com/NathanielInman/jugs"
 }
