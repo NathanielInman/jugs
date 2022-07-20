@@ -43,7 +43,7 @@
     "build"
   ],
   "dependencies": {
-    "del": "^6.0.0",
+    "del": "^7.0.0",
     "gulp": "^4.0.2",
     "gulp-conflict": "^0.4.0",
     "gulp-install": "^1.1.0",
