@@ -1,13 +1,13 @@
 import './index.styl';
-import {Easel} from '@ion-cloud/core';
-import {makeItRain} from './makeItRain';
+import { Easel } from '@ion-cloud/core';
+import { makeItRain } from './makeItRain';
 export const easel = new Easel();
 
 // Launch application if easel was able to create a canvas,
 // if it wasn't then we know canvas isn't supported
 const noscript = document.querySelector('noscript');
 
-if(!easel.activated){
+if (!easel.activated) {
   noscript.innerHTML = `
   <p class="browsehappy">
     You are using an outdated browser. Please
@@ -15,7 +15,7 @@ if(!easel.activated){
     to improve your experience.
     <span style="color:red;"><br/>Canvas isn't supported in your browser.</span>
   </p>`;
-}else{
-  noscript.style.display='none';
+} else {
+  noscript.style.display = 'none';
   makeItRain();
-} //end if
+} // end if

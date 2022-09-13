@@ -4,13 +4,11 @@
 
 ![Example Program](https://i.imgur.com/E0r4Otw.gif)
 
-App generator (J)avascript p(ug) (s)tylus makes development fun again!
+App generator (J)avascript (ug)lify (s)tylus makes development fun again!
 
-- **Browser Sync** : *Live reloading system*
+- **HMR** : *Hot Module Reloading*
 - **Babel** : *Transpile modern javascript, formerly called 6to5*
 - **Eslint** : *Lint your javascript in its modern format*
-- **Pug** : *Templating system made easy, formerly jade*
-- **Autoprefixer** : *With PostCSS means no more vendor prefixs, it's all auto-magical!*
 - **Stylus** : *Powerful CSS Preprocessor with a beautiful syntax*
 - **Uglify** : *Both CSS and JS to make your client payloads small and quick to load*
 - **Parcel** : *Performant Module bundler*
@@ -27,6 +25,8 @@ App generator (J)avascript p(ug) (s)tylus makes development fun again!
 ## Changes
 
 ```
+09-13-2022:
+  Switched Parcel out for vite.js and updated linting rules
 02-09-2021:
   Removed slush altogether. Doesn't require another npm module to install
 10-22-2019:
@@ -93,7 +93,6 @@ project
 │ ├─ app.js
 │ ├─ makeItRain.js
 │ └─ app.styl
-├─ config.babel.js
 ├─ package.json
 └─ readme.md
 ```
@@ -113,8 +112,8 @@ Ion is a particle engine made for canvas 2d context. The library is well-documen
 This boilerplate of mine is just a combination of great tools, all credit goes to
 those who actually put in all the hard work to create them.
 
-- [Parcel][7] has been an instrumental boost in productivity and clean code, allowing the
-  the use of the ES2015 module system. Moving from webpack to parcel greatly decreased
+- [Vite.js][7] has been an instrumental boost in productivity and clean code, allowing the
+  the use of the ES2015 module system. Moving from webpack to vite.js greatly decreased
   complexity and made starting projects **so** much easier!
 - Though [Pug][1] (formerly Jade,) has been seen predominately as a server-side helper
   for templating, I find it incredibly helpful on front-end projects where I'm using a
@@ -145,4 +144,4 @@ those who actually put in all the hard work to create them.
 [4]:https://github.com/postcss/autoprefixer
 [5]:http://eslint.org
 [6]:https://github.com/babel/babel
-[7]:https://parceljs.org/
+[7]:https://vitejs.dev/

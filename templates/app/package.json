@@ -2,7 +2,7 @@
   "name": "<%= name %>",
   "version": "<%= appVersion %>",
   "description": "<%= appDescription %>",
-  "main": "config.babel.js",
+  "main": "index.html",
   "author": {
     "name": "<%= authorName %>",
     "email": "<%= authorEmail %>"
@@ -15,15 +15,27 @@
     "url": "https://github.com/<%= userName %>/<%= name %>/issues"
   },
   "scripts": {
-    "prestart": "rm -rf ./parcel",
-    "start": "NODE_ENV=development ./node_modules/parcel/bin/cli.js ./src/index.pug -d dist --cache-dir .parcel"
+    "preview": "vite preview ./src",
+    "build": "vite build ./src",
+    "lint": "eslint --ext .vue --ext .js ./",
+    "start": "vite serve --mode development ./src"
   },
   "devDependencies": {
-    "parcel": "^1.12.4"
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.19.0",
+    "@babel/plugin-transform-regenerator": "^7.18.6",
+    "@babel/preset-env": "^7.19.0",
+    "eslint": "^8.23.1",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.5",
+    "eslint-plugin-promise": "^6.0.1",
+    "stylus": "^0.59.0",
+    "vite": "^3.1.0"
   },
   "dependencies": {
     "@ion-cloud/core": "^2.8.1"
   },
   "readmeFilename": "README.md",
-  "homepage": "https://github.com/<%= userName %>/<%= name %>"
+  "homepage": "Https://github.com/<%= userName %>/<%= name %>"
 }
