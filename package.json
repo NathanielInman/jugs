@@ -1,7 +1,7 @@
 {
   "name": "jugs",
   "type": "module",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "App generator (J)ade (ug)lify (s)tylus makes development fun again!",
   "license": "MIT",
   "author": {
