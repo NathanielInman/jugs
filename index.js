@@ -1,23 +1,26 @@
 #!/usr/bin/env node
 
-// load plugins
-var gulp      = require('gulp'),
-    inquirer  = require('inquirer'),
-    del       = require('del'),
-    iniparser = require('iniparser'),
-    conflict  = require('gulp-conflict'),
-    install   = require('gulp-install'),
-    rename    = require('gulp-rename'),
-    template  = require('gulp-template');
+import gulp from 'gulp';
+import inquirer from 'inquirer';
+import iniparser from 'iniparser';
+import conflict from 'gulp-conflict';
+import install from 'gulp-install';
+import rename from 'gulp-rename';
+import template from 'gulp-template';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-var defaults = (function () {
-  var homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE,
-      workingDirName = process.cwd().split('/').pop().split('\\').pop(),
-      osUserName = homeDir && homeDir.split('/').pop() || 'root',
-      configFile = homeDir + '/.gitconfig',
-      user = {};
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const defaults = (() => {
+  const homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE,
+        workingDirName = process.cwd().split('/').pop().split('\\').pop(),
+        osUserName = homeDir && homeDir.split('/').pop() || 'root',
+        configFile = homeDir + '/.gitconfig';
+  let user = {};
 
-  if (require('fs').existsSync(configFile)) {
+  if (fs.existsSync(configFile)) {
     user = iniparser.parseSync(configFile).user;
   } //end if
   return {
@@ -26,33 +29,6 @@ var defaults = (function () {
     authorEmail: user.email || '',
   };
 })();
-
-// Limit the results down to the packages installed
-var filterModuleNames = function (val) {
-  return val.toLowerCase().replace(/\+(\w)/, function (match, $1) {
-    return $1.toUpperCase();
-  });
-};
-
-// Replace the paths with the specified paths the user gave
-var filterPaths = function (val) {
-  return val.replace(/(\w)([^\/])$/, '$1$2/');
-};
-
-// Replace the normal extension with the one the user gave
-var filterExt = function (val) {
-  return val.replace(/^([^\.])/, '.$1').replace(/\W+/g, '.');
-};
-
-// Does the user want to edit the source folder structure?
-var sourceCustomizationWanted = function (answers) {
-  return !!answers.sourceCustomization;
-};
-
-// Does the user want to edit the distribution folder structure?
-var outputCustomizationWanted = function (answers) {
-  return !!answers.outputCustomization;
-};
 
 // If they don't specify specifics, we need to have defaults ready
 var handleDefaults = function (answers) {

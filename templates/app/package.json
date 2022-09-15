@@ -15,10 +15,10 @@
     "url": "https://github.com/<%= userName %>/<%= name %>/issues"
   },
   "scripts": {
-    "preview": "vite preview ./src",
-    "build": "vite build ./src",
+    "preview": "vite preview",
+    "build": "vite build",
     "lint": "eslint --ext .vue --ext .js ./",
-    "start": "vite serve --mode development ./src"
+    "start": "vite serve --mode development --cors"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",

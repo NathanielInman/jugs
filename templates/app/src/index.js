@@ -1,7 +1,8 @@
 import './index.styl';
 import { Easel } from '@ion-cloud/core';
-import { makeItRain } from './makeItRain';
-export const easel = new Easel();
+import { Pipeline } from './Pipeline';
+
+const easel = new Easel();
 
 // Launch application if easel was able to create a canvas,
 // if it wasn't then we know canvas isn't supported
@@ -17,5 +18,7 @@ if (!easel.activated) {
   </p>`;
 } else {
   noscript.style.display = 'none';
-  makeItRain();
+  const pipeline = new Pipeline(easel);
+
+  console.log(pipeline);
 } // end if
