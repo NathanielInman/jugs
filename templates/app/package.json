@@ -17,7 +17,7 @@
   "scripts": {
     "preview": "vite preview",
     "build": "vite build",
-    "lint": "eslint --ext .vue --ext .js ./",
+    "lint": "eslint --ext .js ./",
     "start": "vite serve --mode development --cors"
   },
   "devDependencies": {

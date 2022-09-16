@@ -1,0 +1,14 @@
+env:
+  browser: true
+  commonjs: true
+  node: true
+  es2021: true
+extends: standard
+overrides: []
+parserOptions:
+  ecmaVersion: latest
+rules:
+  semi: [2, 'always']
+  no-extra-semi: 2
+  no-useless-return: error
+  prefer-const: error
