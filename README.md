@@ -4,14 +4,13 @@
 
 ![Example Program](https://i.imgur.com/E0r4Otw.gif)
 
-App generator (J)avascript (ug)lify (s)tylus makes development fun again!
+App generator **jugs** makes development fun again!
 
-- **HMR** : *Hot Module Reloading*
-- **Babel** : *Transpile modern javascript, formerly called 6to5*
-- **Eslint** : *Lint your javascript in its modern format*
-- **Stylus** : *Powerful CSS Preprocessor with a beautiful syntax*
-- **Uglify** : *Both CSS and JS to make your client payloads small and quick to load*
-- **Parcel** : *Performant Module bundler*
+- [Vite.js](https://github.com/vitejs/vite) : *Performant Module bundler with* **tree-shaking**, **hot module reloading** *&* **minification**
+- [Babel](https://github.com/babel/babel) : *Transpile modern javascript, formerly called 6to5*
+- [Eslint](https://github.com/eslint/eslint) : *Lint your javascript in its modern format*
+- [Stylus](https://github.com/stylus/stylus) : *Powerful CSS Preprocessor with a beautiful syntax*
+- [Ion-Cloud](https://github.com/ion-cloud/ion-cloud) : *A micro library for animations & game development*
 
 ## Table of Contents
 
