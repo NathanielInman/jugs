@@ -78,20 +78,18 @@ And just like that, you're on the way to making your app!
 
 ## File Structure
 
-Javascript files are compiled together based upon their dependencies declared using ES2015 `import` statements. You can add additional entry files in the gulpfile under the `scripts` task. Use `include` for jade files and `import` for stylus files.
+Javascript files are compiled together based upon their dependencies declared using ES2015 `import` statements. 
 
 ```
 project
 ├─dist
-│ ├<<────(assets are copied here on compile)
-│ ├─ file.js (includes all styles)
-│ └─ index.html
+│ └─<<────(assets are copied here on compile)
+├─ public (images/pdf/other go here)
 ├─ src
-│ ├─assets
-│ │ └─ (imgs/pdf/other go here)
-│ ├─ app.js
-│ ├─ makeItRain.js
-│ └─ app.styl
+│ ├─ index.styl
+│ ├─ index.js
+│ └─ Pipeline.js
+├─ vite.config.js
 ├─ package.json
 └─ readme.md
 ```
@@ -114,10 +112,6 @@ those who actually put in all the hard work to create them.
 - [Vite.js][7] has been an instrumental boost in productivity and clean code, allowing the
   the use of the ES2015 module system. Moving from webpack to vite.js greatly decreased
   complexity and made starting projects **so** much easier!
-- Though [Pug][1] (formerly Jade,) has been seen predominately as a server-side helper
-  for templating, I find it incredibly helpful on front-end projects where I'm using a
-  build system anyways, as the syntax is far easier to read and reduces duplication of
-  segments with partials.
 - From css to less to sass to [Stylus][2], it's been a long road with css pre-processors,
   but I finally found one that lets me drop all the redundant syntax and focus more on the
   design. I love my curly brace languages, but personally think that it gets in-between
