@@ -57,16 +57,19 @@
     "iniparser": "^1.0.5",
     "inquirer": "^9.1.4"
   },
-  "bugs": {
-    "url": "https://github.com/NathanielInman/jugs/issues"
-  },
-  "readmeFilename": "README.md",
-  "homepage": "https://github.com/NathanielInman/jugs",
   "devDependencies": {
     "eslint": "^8.31.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.6.0",
     "eslint-plugin-promise": "^6.1.1"
-  }
+  },
+  "overrides": {
+    "glob-parent": "^6.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/NathanielInman/jugs/issues"
+  },
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/NathanielInman/jugs"
 }
