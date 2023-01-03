@@ -46,7 +46,7 @@
     "build"
   ],
   "dependencies": {
-    "chalk": "^5.0.1",
+    "chalk": "^5.2.0",
     "del": "^7.0.0",
     "gulp": "^4.0.2",
     "gulp-conflict": "^0.4.0",
@@ -57,7 +57,7 @@
     "gulp-tap": "^2.0.0",
     "gulp-template": "^5.0.0",
     "iniparser": "^1.0.5",
-    "inquirer": "^9.1.1"
+    "inquirer": "^9.1.4"
   },
   "bugs": {
     "url": "https://github.com/NathanielInman/jugs/issues"
@@ -65,10 +65,10 @@
   "readmeFilename": "README.md",
   "homepage": "https://github.com/NathanielInman/jugs",
   "devDependencies": {
-    "eslint": "^8.23.1",
+    "eslint": "^8.31.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.5",
-    "eslint-plugin-promise": "^6.0.1"
+    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-promise": "^6.1.1"
   }
 }
