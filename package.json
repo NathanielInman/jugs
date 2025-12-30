@@ -9,7 +9,7 @@
     "email": "nate@theoestudio.com"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=20.0.0"
   },
   "bin": {
     "jugs": "./index.js"
