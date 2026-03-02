@@ -59,7 +59,7 @@
   },
   "devDependencies": {
     "eslint": "^9.39.2",
-    "neostandard": "^0.12.1"
+    "neostandard": "^0.13.0"
   },
   "overrides": {
     "glob-parent": "^6.0.0"
