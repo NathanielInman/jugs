@@ -55,7 +55,7 @@
     "gulp-tap": "^2.0.0",
     "gulp-template": "^6.1.0",
     "iniparser": "^1.0.5",
-    "inquirer": "^13.1.0"
+    "inquirer": "^14.0.2"
   },
   "devDependencies": {
     "eslint": "^9.39.2",
